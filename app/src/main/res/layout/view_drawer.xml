@@ -36,7 +36,7 @@
                     android:id="@+id/logo_image"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_60sdp"
-                    android:layout_marginTop="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginLeft="@dimen/_40sdp"
                     android:layout_marginRight="@dimen/_40sdp"
                     android:src="@drawable/logo" />
@@ -259,7 +259,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_36sdp"
                             android:gravity="center"
-                            android:text="Menu 5"
+                            android:text="@string/side_menu_about"
                             android:textColor="@android:color/background_light"
                             android:textSize="@dimen/_12ssp" />
 

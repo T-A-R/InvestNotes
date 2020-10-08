@@ -6,4 +6,5 @@
     <string name="menu_03">Add</string>
     <string name="menu_04">Stats</string>
     <string name="menu_05">History</string>
+    <string name="side_menu_about">About</string>
 </resources>
