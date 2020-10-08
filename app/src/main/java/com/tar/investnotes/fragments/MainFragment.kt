@@ -129,7 +129,7 @@ class MainFragment : SmartFragment(R.layout.fragment_main), View.OnClickListener
 
     override fun onOpenScreen(screen: SmartFragment?) {
         menu?.show(screen!!.isMenuShown())
-        if (screen is AuthFragment) {
+        if (screen is StockFragment) {
             menu?.setCursor(1)
         } else if (screen is TempFragment) {
             menu?.setCursor(2)

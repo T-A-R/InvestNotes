@@ -1,7 +1,6 @@
 package com.tar.investnotes.fragments
 
 import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
 import com.tar.investnotes.R
 import com.tar.investnotes.activities.MainActivity.Companion.TAG
 import com.tar.investnotes.utils.Anim
@@ -29,7 +28,7 @@ class AuthFragment : SmartFragment(R.layout.fragment_auth) {
 
     private fun onNextButtonClick() {
         Log.d(TAG, "onNextButtonClick: ")
-        replaceFragment(BankFragment())
+        replaceFragment(StockFragment())
     }
 
     override fun onBackPressed(): Boolean {

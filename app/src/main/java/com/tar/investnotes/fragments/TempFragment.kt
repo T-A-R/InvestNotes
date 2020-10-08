@@ -27,7 +27,7 @@ class TempFragment : SmartFragment(R.layout.fragment_temp) {
 
     fun onNextButtonClick() {
         Log.d(TAG, "onNextButtonClick: ")
-        replaceFragment(BankFragment())
+        replaceFragment(StockFragment())
     }
 
     override fun onBackPressed(): Boolean {
