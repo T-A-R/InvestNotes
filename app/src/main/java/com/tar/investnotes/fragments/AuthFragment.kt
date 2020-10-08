@@ -1,17 +1,19 @@
 package com.tar.investnotes.fragments
 
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import com.tar.investnotes.R
 import com.tar.investnotes.activities.MainActivity.Companion.TAG
 import com.tar.investnotes.utils.Anim
 import com.tar.investnotes.utils.Fonts
 import kotlinx.android.synthetic.main.fragment_temp.*
 
-class TempFragment : SmartFragment(R.layout.fragment_temp) {
+
+class AuthFragment : SmartFragment(R.layout.fragment_auth) {
 
     override fun onReady() {
         initViews()
-        MainFragment.enableSideMenu()
+        MainFragment.disableSideMenu()
 
         btn_next.setOnClickListener { onNextButtonClick() }
 
@@ -25,7 +27,7 @@ class TempFragment : SmartFragment(R.layout.fragment_temp) {
         btn_next.startAnimation(Anim.getAppearSlide(context, 500))
     }
 
-    fun onNextButtonClick() {
+    private fun onNextButtonClick() {
         Log.d(TAG, "onNextButtonClick: ")
         replaceFragment(BankFragment())
     }
@@ -33,4 +35,14 @@ class TempFragment : SmartFragment(R.layout.fragment_temp) {
     override fun onBackPressed(): Boolean {
         return true
     }
+
+//    override fun onResume() {
+//        super.onResume()
+//        (activity as AppCompatActivity?)?.supportActionBar?.hide()
+//    }
+//
+//    override fun onStop() {
+//        super.onStop()
+//        (activity as AppCompatActivity?)?.supportActionBar?.show()
+//    }
 }

@@ -1,10 +1,10 @@
-package com.example.investnotes.fragments
+package com.tar.investnotes.fragments
 
 import android.util.Log
-import com.example.investnotes.R
-import com.example.investnotes.activities.MainActivity.Companion.TAG
-import com.example.investnotes.utils.Anim
-import com.example.investnotes.utils.Fonts
+import com.tar.investnotes.R
+import com.tar.investnotes.activities.MainActivity.Companion.TAG
+import com.tar.investnotes.utils.Anim
+import com.tar.investnotes.utils.Fonts
 import kotlinx.android.synthetic.main.fragment_temp.*
 
 class TempFragment : SmartFragment(R.layout.fragment_temp) {
@@ -27,7 +27,7 @@ class TempFragment : SmartFragment(R.layout.fragment_temp) {
 
     fun onNextButtonClick() {
         Log.d(TAG, "onNextButtonClick: ")
-        showMenu()
+        replaceFragment(BankFragment())
     }
 
     override fun onBackPressed(): Boolean {

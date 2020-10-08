@@ -4,11 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:saveEnabled="false"
-    tools:context="com.example.mystore.activities.MainActivity">
+    tools:context="com.tar.investnotes.activities.MainActivity">
 
     <fragment
         android:id="@+id/main"
-        android:name="com.example.mystore.fragments.MainFragment"
+        android:name="com.tar.investnotes.fragments.MainFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

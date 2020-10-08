@@ -7,12 +7,12 @@ import com.tar.investnotes.utils.Anim
 import com.tar.investnotes.utils.Fonts
 import kotlinx.android.synthetic.main.fragment_temp.*
 
-class TempFragment : SmartFragment(R.layout.fragment_temp) {
+class BankFragment : SmartFragment(R.layout.fragment_bank) {
 
     override fun onReady() {
         initViews()
         MainFragment.enableSideMenu()
-
+        showMenu()
         btn_next.setOnClickListener { onNextButtonClick() }
 
     }

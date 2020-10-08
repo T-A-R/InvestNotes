@@ -1,4 +1,4 @@
-package com.example.investnotes
+package com.tar.investnotes
 
 import org.junit.Test
 

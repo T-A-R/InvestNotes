@@ -1,4 +1,4 @@
-package com.example.investnotes.fragments
+package com.tar.investnotes.fragments
 
 import android.content.Context
 import android.content.Intent
@@ -9,8 +9,8 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.investnotes.activities.MainActivity
-import com.example.investnotes.database.StoreDao
+import com.tar.investnotes.activities.MainActivity
+import com.tar.investnotes.database.StoreDao
 
 abstract class SmartFragment(var layoutSrc: Int) : Fragment() {
 

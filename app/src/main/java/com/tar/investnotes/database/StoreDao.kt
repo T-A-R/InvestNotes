@@ -1,10 +1,10 @@
-package com.example.investnotes.database
+package com.tar.investnotes.database
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.investnotes.database.models.UserR
+import com.tar.investnotes.database.models.UserR
 
 @Dao
 interface StoreDao {

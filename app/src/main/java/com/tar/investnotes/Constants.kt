@@ -1,4 +1,4 @@
-package com.example.investnotes
+package com.tar.investnotes
 
 class Constants {
 

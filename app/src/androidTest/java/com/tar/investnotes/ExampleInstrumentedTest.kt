@@ -1,4 +1,4 @@
-package com.example.investnotes
+package com.tar.investnotes
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

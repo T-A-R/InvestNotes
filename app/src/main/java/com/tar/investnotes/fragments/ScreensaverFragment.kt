@@ -1,11 +1,11 @@
-package com.example.investnotes.fragments
+package com.tar.investnotes.fragments
 
 import android.view.View
 import android.widget.ImageView
 import android.widget.RelativeLayout
-import com.example.investnotes.R
-import com.example.investnotes.utils.Anim
-import com.example.investnotes.utils.Fonts
+import com.tar.investnotes.R
+import com.tar.investnotes.utils.Anim
+import com.tar.investnotes.utils.Fonts
 import kotlinx.android.synthetic.main.fragment_screensaver.*
 import java.util.*
 

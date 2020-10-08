@@ -1,12 +1,16 @@
-package com.example.investnotes
+package com.tar.investnotes
 
 import android.app.Application
-import com.example.investnotes.api.MyRetrofitAPI
-import com.example.investnotes.api.UserAgentInterceptor
+import com.tar.investnotes.api.MyRetrofitAPI
+import com.tar.investnotes.api.UserAgentInterceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
+
+/**
+ * Created by Taras Maevskiy on 08.10.20.
+ */
 
 class CoreApp : Application() {
 

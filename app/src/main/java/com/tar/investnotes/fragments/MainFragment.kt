@@ -1,4 +1,4 @@
-package com.example.investnotes.fragments
+package com.tar.investnotes.fragments
 
 import android.view.Gravity
 import android.view.MenuItem
@@ -7,7 +7,7 @@ import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.drawerlayout.widget.DrawerLayout.DrawerListener
-import com.example.investnotes.R
+import com.tar.investnotes.R
 import kotlinx.android.synthetic.main.view_drawer.*
 
 class MainFragment : SmartFragment(R.layout.fragment_main), View.OnClickListener,
@@ -60,7 +60,7 @@ class MainFragment : SmartFragment(R.layout.fragment_main), View.OnClickListener
     }
 
     fun startScreens() {
-        openScreen(TempFragment())
+        openScreen(AuthFragment())
     }
 
     fun openNewAcivityScreen() {
@@ -129,7 +129,7 @@ class MainFragment : SmartFragment(R.layout.fragment_main), View.OnClickListener
 
     override fun onOpenScreen(screen: SmartFragment?) {
         menu?.show(screen!!.isMenuShown())
-        if (screen is TempFragment) {
+        if (screen is AuthFragment) {
             menu?.setCursor(1)
         } else if (screen is TempFragment) {
             menu?.setCursor(2)

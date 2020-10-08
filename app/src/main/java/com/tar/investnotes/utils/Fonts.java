@@ -1,4 +1,4 @@
-package com.example.investnotes.utils;
+package com.tar.investnotes.utils;
 
 import android.content.Context;
 import android.content.res.AssetManager;

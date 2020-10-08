@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.mystore.activities.MainActivity">
+    tools:context="com.tar.investnotes.activities.MainActivity">
 
     <androidx.drawerlayout.widget.DrawerLayout
         android:id="@+id/drawer_cont"
@@ -39,20 +39,20 @@
 
     <fragment
         android:id="@+id/frag_notification"
-        android:name="com.example.mystore.fragments.NotificationFragment"
+        android:name="com.tar.investnotes.fragments.NotificationFragment"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_60sdp" />
 
     <fragment
         android:id="@+id/frag_menu"
-        android:name="com.example.mystore.fragments.MenuFragment"
+        android:name="com.tar.investnotes.fragments.MenuFragment"
         android:layout_width="match_parent"
         android:layout_height="78dp"
         android:layout_alignParentBottom="true" />
 
     <fragment
         android:id="@+id/frag_saver"
-        android:name="com.example.mystore.fragments.ScreensaverFragment"
+        android:name="com.tar.investnotes.fragments.ScreensaverFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

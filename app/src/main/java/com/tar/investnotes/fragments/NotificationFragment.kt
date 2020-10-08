@@ -1,11 +1,11 @@
-package com.example.investnotes.fragments
+package com.tar.investnotes.fragments
 
 import android.content.Intent
 import android.util.Log
 import android.view.View
-import com.example.investnotes.R
-import com.example.investnotes.activities.MainActivity
-import com.example.investnotes.utils.Anim
+import com.tar.investnotes.R
+import com.tar.investnotes.activities.MainActivity
+import com.tar.investnotes.utils.Anim
 import io.reactivex.Observable
 import io.reactivex.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers

@@ -1,8 +1,8 @@
-package com.example.investnotes.fragments
+package com.tar.investnotes.fragments
 
 import androidx.appcompat.app.AppCompatActivity
-import com.example.investnotes.R
-import com.example.investnotes.fragments.SmartFragment.ScreenListener
+import com.tar.investnotes.R
+import com.tar.investnotes.fragments.SmartFragment.ScreenListener
 
 class ScreensManager internal constructor(
     private val activity: AppCompatActivity,

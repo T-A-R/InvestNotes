@@ -1,9 +1,9 @@
-package com.example.investnotes.database.models
+package com.tar.investnotes.database.models
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.investnotes.Constants
+import com.tar.investnotes.Constants
 
 @Entity
 data class UserR(

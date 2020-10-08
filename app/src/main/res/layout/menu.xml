@@ -31,7 +31,7 @@
                 android:layout_height="8.5dp"
                 android:scaleY="10"
                 android:transformPivotY="0dp"
-                app:srcCompat="@drawable/bg_circle_gray" />
+                app:srcCompat="@drawable/bg_circle_blue" />
         </RelativeLayout>
 
         <LinearLayout
@@ -93,8 +93,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="24dp"
-            android:layout_marginTop="24dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
             <ImageView
@@ -115,7 +115,7 @@
                 android:layout_weight="1"
                 android:scaleType="fitCenter"
                 android:tint="@color/menuGray"
-                app:srcCompat="@drawable/ico_menu_menu" />
+                app:srcCompat="@drawable/ico_menu_bank" />
 
             <ImageView
                 android:id="@+id/img3"
@@ -124,7 +124,7 @@
                 android:layout_weight="1"
                 android:scaleType="fitCenter"
                 android:tint="@color/menuGray"
-                app:srcCompat="@drawable/ico_menu_menu" />
+                app:srcCompat="@drawable/ico_menu_add" />
 
             <ImageView
                 android:id="@+id/img4"
@@ -133,7 +133,7 @@
                 android:layout_weight="1"
                 android:scaleType="fitCenter"
                 android:tint="@color/menuGray"
-                app:srcCompat="@drawable/ico_menu_menu" />
+                app:srcCompat="@drawable/ico_menu_stats" />
 
             <ImageView
                 android:id="@+id/img5"
@@ -142,7 +142,7 @@
                 android:layout_weight="1"
                 android:scaleType="fitCenter"
                 android:tint="@color/menuGray"
-                app:srcCompat="@drawable/ico_menu_menu" />
+                app:srcCompat="@drawable/ico_menu_history" />
 
         </LinearLayout>
 

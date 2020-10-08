@@ -1,4 +1,4 @@
-package com.example.investnotes.fragments
+package com.tar.investnotes.fragments
 
 import android.annotation.SuppressLint
 import android.graphics.Color
@@ -12,8 +12,8 @@ import android.view.animation.TranslateAnimation
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
-import com.example.investnotes.R
-import com.example.investnotes.utils.Anim
+import com.tar.investnotes.R
+import com.tar.investnotes.utils.Anim
 import kotlinx.android.synthetic.main.menu.*
 import java.util.*
 

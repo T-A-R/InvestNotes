@@ -1,16 +1,20 @@
-package com.example.investnotes.activities
+package com.tar.investnotes.activities
 
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.ViewTreeObserver
 import androidx.appcompat.app.AppCompatActivity
-import com.example.investnotes.BuildConfig
-import com.example.investnotes.R
-import com.example.investnotes.database.StoreDao
-import com.example.investnotes.database.StoreDatabase
-import com.example.investnotes.fragments.MainFragment
-import com.example.investnotes.utils.Fonts
+import com.tar.investnotes.BuildConfig
+import com.tar.investnotes.R
+import com.tar.investnotes.database.StoreDao
+import com.tar.investnotes.database.StoreDatabase
+import com.tar.investnotes.fragments.MainFragment
+import com.tar.investnotes.utils.Fonts
+
+/**
+ * Created by Taras Maevskiy on 08.10.20.
+ */
 
 class MainActivity : AppCompatActivity(), ViewTreeObserver.OnGlobalLayoutListener {
 
@@ -53,5 +57,10 @@ class MainActivity : AppCompatActivity(), ViewTreeObserver.OnGlobalLayoutListene
 
     fun getDao(): StoreDao {
         return StoreDatabase.getInstance(this).storeDao
+    }
+
+    override fun onResume() {
+        super.onResume()
+        supportActionBar?.hide()
     }
 }

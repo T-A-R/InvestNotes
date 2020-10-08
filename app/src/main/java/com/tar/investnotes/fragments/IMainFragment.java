@@ -1,4 +1,4 @@
-package com.example.investnotes.fragments;
+package com.tar.investnotes.fragments;
 
 public interface IMainFragment {
     void showScreensaver(String title, boolean full);
