@@ -7,7 +7,7 @@ import com.tar.investnotes.utils.Anim
 import com.tar.investnotes.utils.Fonts
 import kotlinx.android.synthetic.main.fragment_temp.*
 
-class StockFragment : SmartFragment(R.layout.fragment_stock) {
+class HistoryFragment : SmartFragment(R.layout.fragment_history) {
 
     override fun onReady() {
         initViews()

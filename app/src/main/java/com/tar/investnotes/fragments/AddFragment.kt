@@ -7,9 +7,11 @@ import com.tar.investnotes.utils.Anim
 import com.tar.investnotes.utils.Fonts
 import kotlinx.android.synthetic.main.fragment_temp.*
 
-class StockFragment : SmartFragment(R.layout.fragment_stock) {
+class AddFragment : SmartFragment(R.layout.fragment_add) {
 
     override fun onReady() {
+        Log.d(TAG, "onReady: AddFragment")
+
         initViews()
         MainFragment.enableSideMenu()
         showMenu()

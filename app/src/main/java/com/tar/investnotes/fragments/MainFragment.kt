@@ -1,5 +1,6 @@
 package com.tar.investnotes.fragments
 
+import android.util.Log
 import android.view.Gravity
 import android.view.MenuItem
 import android.view.View
@@ -8,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.drawerlayout.widget.DrawerLayout.DrawerListener
 import com.tar.investnotes.R
+import com.tar.investnotes.activities.MainActivity.Companion.TAG
 import kotlinx.android.synthetic.main.view_drawer.*
 
 class MainFragment : SmartFragment(R.layout.fragment_main), View.OnClickListener,
@@ -77,32 +79,33 @@ class MainFragment : SmartFragment(R.layout.fragment_main), View.OnClickListener
     }
 
     override fun onMenuClick(index: Int) {
-        when (index) {
-            0 -> {
-                menu?.setCursor(index)
-                onMenu1Press()
+        if (menu?.getCursor() != index)
+            when (index) {
+                0 -> {
+                    menu?.setCursor(index)
+                    onMenu1Press()
+                }
+                1 -> {
+                    menu?.setCursor(index)
+                    onMenu2Press()
+                    hide()
+                }
+                2 -> {
+                    menu?.setCursor(index)
+                    onMenu3Press()
+                    hide()
+                }
+                3 -> {
+                    menu?.setCursor(index)
+                    onMenu4Press()
+                    hide()
+                }
+                4 -> {
+                    menu?.setCursor(index)
+                    onMenu5Press()
+                    hide()
+                }
             }
-            1 -> {
-                menu?.setCursor(index)
-                onMenu2Press()
-                hide()
-            }
-            2 -> {
-                menu?.setCursor(index)
-                onMenu3Press()
-                hide()
-            }
-            3 -> {
-                menu?.setCursor(index)
-                onMenu4Press()
-                hide()
-            }
-            4 -> {
-                menu?.setCursor(index)
-                onMenu5Press()
-                hide()
-            }
-        }
     }
 
     private fun onMenu1Press() {
@@ -113,12 +116,27 @@ class MainFragment : SmartFragment(R.layout.fragment_main), View.OnClickListener
         }
     }
 
-    private fun onMenu2Press() {}
-    private fun onMenu3Press() {}
-    private fun onMenu4Press() {}
-    private fun onMenu5Press() {}
+    private fun onMenu2Press() {
+        openScreen(StockFragment())
+    }
 
-    private fun onSideMenu1Click() {}
+    private fun onMenu3Press() {
+        openScreen(AddFragment())
+    }
+
+    private fun onMenu4Press() {
+        openScreen(StatsFragment())
+    }
+
+    private fun onMenu5Press() {
+        openScreen(HistoryFragment())
+    }
+
+    private fun onSideMenu1Click() {
+        hide()
+        replaceFragment(AddFragment())
+    }
+
     private fun onSideMenu2Click() {}
     private fun onSideMenu3Click() {}
     private fun onSideMenu4Click() {}
@@ -131,11 +149,11 @@ class MainFragment : SmartFragment(R.layout.fragment_main), View.OnClickListener
         menu?.show(screen!!.isMenuShown())
         if (screen is StockFragment) {
             menu?.setCursor(1)
-        } else if (screen is TempFragment) {
+        } else if (screen is AddFragment) {
             menu?.setCursor(2)
-        } else if (screen is TempFragment) {
+        } else if (screen is StatsFragment) {
             menu?.setCursor(3)
-        } else if (screen is TempFragment) {
+        } else if (screen is HistoryFragment) {
             menu?.setCursor(4)
         } else if (screen is TempFragment) {
             menu?.setCursor(4)

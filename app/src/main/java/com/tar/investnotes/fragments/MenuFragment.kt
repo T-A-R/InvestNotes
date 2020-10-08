@@ -56,6 +56,10 @@ class MenuFragment : SmartFragment(R.layout.menu), OnTouchListener, OnGlobalLayo
         if (curIndex == 0) setCursor(previousIndex)
     }
 
+    fun getCursor(): Int {
+        return curIndex
+    }
+
     fun setCursor(index: Int) {
         if (curIndex == index) return
         val context = context ?: return
@@ -63,7 +67,16 @@ class MenuFragment : SmartFragment(R.layout.menu), OnTouchListener, OnGlobalLayo
         val offset = cursor.width / 2
         val fromX = (curIndex + 0.5f) * sect - offset
         val toX = (index + 0.5f) * sect - offset
-        val translateAnimation = TranslateAnimation(Animation.ABSOLUTE, fromX, Animation.ABSOLUTE, toX, Animation.RELATIVE_TO_SELF, 0f, Animation.RELATIVE_TO_SELF, 0f)
+        val translateAnimation = TranslateAnimation(
+            Animation.ABSOLUTE,
+            fromX,
+            Animation.ABSOLUTE,
+            toX,
+            Animation.RELATIVE_TO_SELF,
+            0f,
+            Animation.RELATIVE_TO_SELF,
+            0f
+        )
         translateAnimation.fillAfter = true
         translateAnimation.duration = if (opened) 200L else 1L
         translateAnimation.interpolator = DecelerateInterpolator()
@@ -71,9 +84,11 @@ class MenuFragment : SmartFragment(R.layout.menu), OnTouchListener, OnGlobalLayo
 
         for (i in imgs.indices) {
             imgs[i]!!.setColorFilter(
-                if (i == index) Color.WHITE else ContextCompat.getColor(context, R.color.menuGray))
+                if (i == index) Color.WHITE else ContextCompat.getColor(context, R.color.menuGray)
+            )
             txts[i]!!.setTextColor(
-                if (i == index) Color.WHITE else ContextCompat.getColor(context, R.color.menuGray))
+                if (i == index) Color.WHITE else ContextCompat.getColor(context, R.color.menuGray)
+            )
         }
 
         previousIndex = curIndex

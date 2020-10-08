@@ -7,7 +7,15 @@
     android:background="@drawable/running_man"
     android:id="@+id/cont_temp_fragment">
 
-
+    <TextView
+        android:id="@+id/labelText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:text="@string/label_stats"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/_40ssp" />
 
 
 
