@@ -1,6 +1,5 @@
 package com.tar.investnotes.fragments
 
-import android.util.Log
 import android.view.Gravity
 import android.view.MenuItem
 import android.view.View
@@ -9,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.drawerlayout.widget.DrawerLayout.DrawerListener
 import com.tar.investnotes.R
-import com.tar.investnotes.activities.MainActivity.Companion.TAG
 import kotlinx.android.synthetic.main.view_drawer.*
 
 class MainFragment : SmartFragment(R.layout.fragment_main), View.OnClickListener,

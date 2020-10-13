@@ -17,7 +17,7 @@ class CoreApp : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        val userAgent : String = "MyStore"
+        val userAgent = "MyStore"
 
         val client: OkHttpClient = OkHttpClient.Builder()
             .connectTimeout(20, TimeUnit.SECONDS)

@@ -13,7 +13,7 @@ interface StoreDao {
     fun insertUser(activationModelR: UserR?)
 
     @Query("SELECT * FROM UserR")
-    fun getUsers(): List<UserR?>?
+    fun getUsers(): List<UserR>?
 
     @Query("DELETE FROM UserR")
     fun clearUserR()

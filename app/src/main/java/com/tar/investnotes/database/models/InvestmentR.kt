@@ -2,30 +2,40 @@ package com.tar.investnotes.database.models
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.Index
 import androidx.room.PrimaryKey
-import com.tar.investnotes.Constants
 
-@Entity
-data class UserR(
+@Entity(indices = [Index("type"), Index("active")])
+data class InvestmentR(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     val id: Long = 0L,
 
-    @ColumnInfo(name = "login")
-    var login: String = "",
+    @ColumnInfo(name = "code")
+    var code: String = "",
 
-    @ColumnInfo(name = "password")
-    var password: String= "",
+    @ColumnInfo(name = "quantity")
+    var quantity: Int = 0,
 
-    @ColumnInfo(name = "email")
-    var email: String= "",
+    @ColumnInfo(name = "price_buy")
+    var priceBuy: Float = 0F,
 
-    @ColumnInfo(name = "user_type")
-    var user_type: String = Constants.User.FREE,
+    @ColumnInfo(name = "price_sell")
+    var priceSell: Float = 0F,
 
-    @ColumnInfo(name = "phone")
-    var phone: Int = 0,
+    @ColumnInfo(name = "price_last")
+    var priceLast: Float = 0F,
 
-    @ColumnInfo(name = "reg_time")
-    val regTime: Long = System.currentTimeMillis(),
-)
+    @ColumnInfo(name = "owner_id")
+    var ownerId: Long = 0L,
+
+    @ColumnInfo(name = "broker_id")
+    var brokerId: Long = 0L,
+
+    @ColumnInfo(name = "type")
+    var type: String = "",
+
+    @ColumnInfo(name = "active")
+    var active: Boolean = true,
+
+    )

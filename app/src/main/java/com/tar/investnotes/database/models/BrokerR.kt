@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 import com.tar.investnotes.Constants
 
 @Entity
-data class OwnerR(
+data class BrokerR(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     val id: Long = 0L,

@@ -59,6 +59,10 @@ class MainActivity : AppCompatActivity(), ViewTreeObserver.OnGlobalLayoutListene
         return StoreDatabase.getInstance(this).storeDao
     }
 
+    fun getDatabase(): StoreDatabase {
+        return StoreDatabase.getInstance(this)
+    }
+
     override fun onResume() {
         super.onResume()
         supportActionBar?.hide()

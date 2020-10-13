@@ -1,14 +1,21 @@
 package com.tar.investnotes.database
 
 import android.content.Context
+import android.util.Log
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.tar.investnotes.database.models.UserR
+import com.tar.investnotes.database.models.*
+import io.reactivex.Observable
+import java.util.ArrayList
 
 @Database(
     entities = [
-        UserR::class
+        UserR::class,
+        OwnerR::class,
+        BrokerR::class,
+        InvestTypeR::class,
+        InvestmentR::class
     ], version = 1, exportSchema = false
 )
 
@@ -29,7 +36,7 @@ abstract class StoreDatabase : RoomDatabase() {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
                         StoreDatabase::class.java,
-                        "my_store_database"
+                        "investnotes_database"
                     )
                         .allowMainThreadQueries()
                         .fallbackToDestructiveMigration()
@@ -40,4 +47,10 @@ abstract class StoreDatabase : RoomDatabase() {
             }
         }
     }
+
+    open fun getUsers() : Observable<List<UserR>> {
+        return Observable.fromCallable { storeDao.getUsers() ?: ArrayList() }
+    }
+
+
 }

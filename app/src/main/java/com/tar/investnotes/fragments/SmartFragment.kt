@@ -34,8 +34,8 @@ abstract class SmartFragment(var layoutSrc: Int) : Fragment() {
 
     protected abstract fun onReady()
 
-    open fun getMainActivity(): MainActivity? {
-        return activity as MainActivity?
+    open fun getMainActivity(): MainActivity {
+        return activity as MainActivity
     }
 
     open fun <T : View?> findViewById(id: Int): T? {
