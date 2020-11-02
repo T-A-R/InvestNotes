@@ -14,6 +14,7 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.tar.investnotes.R
 import com.tar.investnotes.utils.Anim
+import com.tar.investnotes.utils.Fonts
 import kotlinx.android.synthetic.main.menu.*
 import java.util.*
 
@@ -39,6 +40,12 @@ class MenuFragment : SmartFragment(R.layout.menu), OnTouchListener, OnGlobalLayo
         txts.add(txt3)
         txts.add(txt4)
         txts.add(txt5)
+
+        txt1.typeface = Fonts.getKallisto()
+        txt2.typeface = Fonts.getKallisto()
+        txt3.typeface = Fonts.getKallisto()
+        txt4.typeface = Fonts.getKallisto()
+        txt5.typeface = Fonts.getKallisto()
 
         onModeChanged()
 

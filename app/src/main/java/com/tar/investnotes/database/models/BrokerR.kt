@@ -7,10 +7,8 @@ import com.tar.investnotes.Constants
 
 @Entity
 data class BrokerR(
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "id")
-    val id: Long = 0L,
 
+    @PrimaryKey
     @ColumnInfo(name = "name")
     var name: String = "",
 )

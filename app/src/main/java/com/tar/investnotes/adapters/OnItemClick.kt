@@ -1,5 +1,5 @@
 package com.tar.investnotes.adapters
 
 interface OnItemClick {
-    fun onItemClicked(position: Int)
+    fun onItemClicked(data: Any)
 }

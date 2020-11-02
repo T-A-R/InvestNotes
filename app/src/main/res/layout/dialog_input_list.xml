@@ -1,32 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cont"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@drawable/dialog_round"
-    android:fitsSystemWindows="true"
-    android:keepScreenOn="true"
-    android:id="@+id/input_cont">
+    android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/input_answer"
+    <TextView
+        android:id="@+id/dialogListLabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_marginRight="@dimen/_34sdp"
-        android:layout_marginEnd="@dimen/_34sdp"/>
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:textSize="@dimen/_20ssp" />
 
-    <android.support.v7.widget.AppCompatImageView
-        android:id="@+id/view_ok"
-        android:layout_width="@dimen/_30sdp"
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_200sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:visibility="gone"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/_4sdp"
-        android:layout_centerVertical="true"
-        android:layout_gravity="end"
-        android:src="@drawable/next"
-        android:background="@drawable/button_background_green"
-        android:tint="@color/white"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"/>
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:orientation="horizontal">
 
-</RelativeLayout>
+        <EditText
+            android:id="@+id/dialogEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:layout_toStartOf="@+id/btnFind"
+            android:hint="@string/enter_value_here"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:maxLength="20"
+            android:maxLines="1"
+            android:textSize="@dimen/_16ssp" />
+
+        <ImageView
+            android:id="@+id/btnFind"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:src="@drawable/search_graph_blue"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnCancel"
+            style="@style/ButtonStyle"
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="@dimen/_36sdp"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="@string/cancel"
+            android:textSize="@dimen/_14ssp" />
+
+        <Button
+            android:id="@+id/btnSet"
+            style="@style/ButtonStyle"
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="@dimen/_36sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="@string/set"
+            android:textSize="@dimen/_14ssp" />
+    </LinearLayout>
+
+</LinearLayout>

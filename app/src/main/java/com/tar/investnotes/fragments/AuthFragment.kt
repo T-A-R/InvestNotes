@@ -26,9 +26,9 @@ class AuthFragment : SmartFragment(R.layout.fragment_auth) {
     }
 
     fun initViews() {
-        et_temp.typeface = Fonts.getFuturaPtMedium()
-        btn_next.typeface = Fonts.getFuturaPtBook()
-        btn_next.transformationMethod = null
+        et_temp.typeface = Fonts.getKallisto()
+        btn_next.typeface = Fonts.getKallisto()
+//        btn_next.transformationMethod = null
         cont_temp_fragment.startAnimation(Anim.getAppear(context))
         btn_next.startAnimation(Anim.getAppearSlide(context, 500))
     }

@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewTreeObserver
 import androidx.appcompat.app.AppCompatActivity
 import com.tar.investnotes.BuildConfig
+import com.tar.investnotes.CoreApp
 import com.tar.investnotes.R
+import com.tar.investnotes.api.MyRetrofitAPI
 import com.tar.investnotes.database.StoreDao
 import com.tar.investnotes.database.StoreDatabase
 import com.tar.investnotes.fragments.MainFragment
@@ -61,6 +63,10 @@ class MainActivity : AppCompatActivity(), ViewTreeObserver.OnGlobalLayoutListene
 
     fun getDatabase(): StoreDatabase {
         return StoreDatabase.getInstance(this)
+    }
+
+    fun getApi(): MyRetrofitAPI? {
+        return CoreApp.retrofitAPI
     }
 
     override fun onResume() {

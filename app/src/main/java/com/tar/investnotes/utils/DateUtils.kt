@@ -1,4 +1,4 @@
-package com.example.q_pulse.utils
+package com.tar.investnotes.utils
 
 import java.text.SimpleDateFormat
 import java.util.*
@@ -8,6 +8,7 @@ object DateUtils {
     val PATTERN_TOKEN = "yyyyMMdd"
     val PATTERN_FULL = "yyyy-MM-dd HH:mm"
     val PATTERN_FULL_SMS = "HH:mm dd.MM.yyyy"
+    val PATTERN_DAY = "dd.MM.yyyy"
 
     @JvmStatic
     val currentTimeMillis: Long

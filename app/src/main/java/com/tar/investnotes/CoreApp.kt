@@ -5,6 +5,7 @@ import com.tar.investnotes.api.MyRetrofitAPI
 import com.tar.investnotes.api.UserAgentInterceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
@@ -29,9 +30,11 @@ class CoreApp : Application() {
         val retrofit = Retrofit.Builder()
             .client(client)
             .baseUrl(Constants.Default.API_URL)
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         retrofitAPI = retrofit.create(MyRetrofitAPI::class.java)
+
     }
 
     companion object {

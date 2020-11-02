@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_50sdp"
             android:layout_marginBottom="@dimen/_20sdp"
-            android:hint="text"
+            android:hint="enter your login"
             android:inputType="textVisiblePassword"
             android:maxLines="1"
             android:maxLength="20"

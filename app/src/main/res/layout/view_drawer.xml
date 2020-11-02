@@ -76,10 +76,11 @@
                             android:background="@drawable/home_white" />
 
                         <TextView
+                            android:id="@+id/menu1text"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_36sdp"
                             android:gravity="center"
-                            android:text="Menu 1"
+                            android:text="@string/menu_1"
                             android:textColor="@android:color/background_light"
                             android:textSize="@dimen/_12ssp" />
 
@@ -121,6 +122,7 @@
                             android:background="@drawable/sync_white" />
 
                         <TextView
+                            android:id="@+id/menu2text"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_36sdp"
                             android:gravity="center"
@@ -166,6 +168,7 @@
                             android:background="@drawable/settings_white" />
 
                         <TextView
+                            android:id="@+id/menu3text"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_36sdp"
                             android:gravity="center"
@@ -211,6 +214,7 @@
                             android:background="@drawable/checkbox_white" />
 
                         <TextView
+                            android:id="@+id/menu4text"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_36sdp"
                             android:gravity="center"
@@ -256,6 +260,7 @@
                             android:background="@drawable/about_white" />
 
                         <TextView
+                            android:id="@+id/menu5text"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_36sdp"
                             android:gravity="center"
@@ -302,6 +307,7 @@
                             android:background="@drawable/logout_white" />
 
                         <TextView
+                            android:id="@+id/menuExit"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_36sdp"
                             android:gravity="center"

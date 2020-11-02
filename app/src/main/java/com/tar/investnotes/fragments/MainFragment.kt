@@ -1,5 +1,6 @@
 package com.tar.investnotes.fragments
 
+import android.util.Log
 import android.view.Gravity
 import android.view.MenuItem
 import android.view.View
@@ -8,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.drawerlayout.widget.DrawerLayout.DrawerListener
 import com.tar.investnotes.R
+import com.tar.investnotes.activities.MainActivity.Companion.TAG
+import com.tar.investnotes.utils.Fonts
 import kotlinx.android.synthetic.main.view_drawer.*
 
 class MainFragment : SmartFragment(R.layout.fragment_main), View.OnClickListener,
@@ -46,6 +49,13 @@ class MainFragment : SmartFragment(R.layout.fragment_main), View.OnClickListener
         menu?.setListener(this)
         screensManager?.setListener(this)
 
+        menu1text.typeface = Fonts.getKallisto()
+        menu2text.typeface = Fonts.getKallisto()
+        menu3text.typeface = Fonts.getKallisto()
+        menu4text.typeface = Fonts.getKallisto()
+        menu5text.typeface = Fonts.getKallisto()
+        menuExit.typeface = Fonts.getKallisto()
+
         menu1.setOnClickListener { onSideMenu1Click() }
         menu2.setOnClickListener { onSideMenu2Click() }
         menu3.setOnClickListener { onSideMenu3Click() }
@@ -77,7 +87,7 @@ class MainFragment : SmartFragment(R.layout.fragment_main), View.OnClickListener
     }
 
     override fun onMenuClick(index: Int) {
-        if (menu?.getCursor() != index)
+        if (menu?.getCursor() != index || index == 0)
             when (index) {
                 0 -> {
                     menu?.setCursor(index)
@@ -107,6 +117,7 @@ class MainFragment : SmartFragment(R.layout.fragment_main), View.OnClickListener
     }
 
     private fun onMenu1Press() {
+        Log.d(TAG, "onMenu1Press: " + sideMenuDrawer + " " + sideMenuDrawer!!.isDrawerOpen(Gravity.LEFT))
         if (!sideMenuDrawer!!.isDrawerOpen(Gravity.LEFT)) {
             show()
         } else {

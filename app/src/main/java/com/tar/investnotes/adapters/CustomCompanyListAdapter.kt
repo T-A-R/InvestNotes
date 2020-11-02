@@ -6,11 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import com.tar.investnotes.R
-import com.tar.investnotes.api.responses.index.Row
+import com.tar.investnotes.database.models.IndexR
 import com.tar.investnotes.utils.Fonts
-import java.util.*
 
-class CustomListAdapter(private var list: List<String>, private val editText: EditText, private val context: Context) : BaseAdapter(), ListAdapter {
+class CustomCompanyListAdapter(private var list: List<IndexR>, private val editText: EditText, private val context: Context,
+                               private val listener: OnCompanyClick) : BaseAdapter(), ListAdapter {
 
     private var item: String = ""
 
@@ -18,7 +18,7 @@ class CustomListAdapter(private var list: List<String>, private val editText: Ed
         return list.size
     }
 
-    fun setList(list: List<String>) {
+    fun setList(list: List<IndexR>) {
         this.list = list
     }
 
@@ -26,7 +26,7 @@ class CustomListAdapter(private var list: List<String>, private val editText: Ed
         return item
     }
 
-    override fun getItem(pos: Int): String {
+    override fun getItem(pos: Int): IndexR {
         return list[pos]
     }
 
@@ -38,20 +38,32 @@ class CustomListAdapter(private var list: List<String>, private val editText: Ed
         var view = convertView
         if (view == null) {
             val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-            view = inflater.inflate(R.layout.holder_custom_list, null)
+            view = inflater.inflate(R.layout.holder_index_list, null)
         }
-        val tvContact = view?.findViewById<View>(R.id.tvElement) as TextView
-        tvContact.text = list[position]
+        val tvContact = view?.findViewById<View>(R.id.tvName) as TextView
+        val tvDesc = view?.findViewById<View>(R.id.tvDesc) as TextView
+        val name = "(${list[position].code}) ${list[position].shortName}"
+        tvContact.text = name
         tvContact.typeface = Fonts.getKallisto()
+
+        if(list[position].desc != "") {
+            tvDesc.visibility = View.VISIBLE
+            tvDesc.text = list[position].desc
+            tvDesc.typeface = Fonts.getKallisto()
+        } else {
+            tvDesc.visibility = View.GONE
+        }
         val cont = view.findViewById<View>(R.id.holderCont) as LinearLayout
 
-        val text = getItem(position)
         cont.setOnClickListener {
             run {
-                item = text
-                editText.setText(text)
+                listener.onItemClicked(getItem(position))
             }
         }
         return view
+    }
+
+    interface OnCompanyClick {
+        fun onItemClicked(data: IndexR)
     }
 }

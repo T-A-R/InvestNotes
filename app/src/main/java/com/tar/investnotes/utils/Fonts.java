@@ -8,11 +8,13 @@ public class Fonts {
 
     static private Typeface futuraPtBook;
     static private Typeface futuraPtMedium;
+    static private Typeface kallisto;
 
     static public void init(Context context) {
         AssetManager assets = context.getAssets();
         futuraPtMedium  = Typeface.createFromAsset(assets, "futura_pt_medium.ttf");
         futuraPtBook  = Typeface.createFromAsset(assets, "futura_pt_book.ttf");
+        kallisto  = Typeface.createFromAsset(assets, "d_kallisto.otf");
     }
 
     static public Typeface getFuturaPtMedium() {
@@ -21,6 +23,10 @@ public class Fonts {
 
     static public Typeface getFuturaPtBook() {
         return futuraPtBook;
+    }
+
+    static public Typeface getKallisto() {
+        return kallisto;
     }
 
 }

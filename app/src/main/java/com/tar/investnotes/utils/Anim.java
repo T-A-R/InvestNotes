@@ -91,6 +91,20 @@ public class Anim {
         return AnimationUtils.loadAnimation(context, R.anim.disappear_slide);
     }
 
+    static public Animation getExitToRight(Context context) {
+        return AnimationUtils.loadAnimation(context, R.anim.exit_to_right);
+    }
+
+    static public Animation getEnterFromRight(Context context) {
+        return AnimationUtils.loadAnimation(context, R.anim.enter_from_right);
+    }
+
+    static public Animation getEnterFromRight(Context context, long startOffset) {
+        Animation animation = getEnterFromRight(context);
+        animation.setStartOffset(startOffset);
+        return animation;
+    }
+
     static public Animation getWait(Context context) {
         return AnimationUtils.loadAnimation(context, R.anim.wait);
     }

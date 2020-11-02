@@ -11,4 +11,11 @@
     <string name="label_history">HISTORY</string>
     <string name="label_stats">STATS</string>
     <string name="label_stock">STOCK</string>
+    <string name="menu_1">Menu 1</string>
+    <string name="enter_value_here">enter value here</string>
+    <string name="cancel">CANCEL</string>
+    <string name="set">SET</string>
+    <string name="add">ADD</string>
+    <string name="enter_code_here">enter code here</string>
+    <string name="continue_btn">Continue</string>
 </resources>

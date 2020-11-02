@@ -5,7 +5,7 @@ import com.tar.investnotes.R
 import com.tar.investnotes.activities.MainActivity.Companion.TAG
 import com.tar.investnotes.utils.Anim
 import com.tar.investnotes.utils.Fonts
-import kotlinx.android.synthetic.main.fragment_temp.*
+import kotlinx.android.synthetic.main.fragment_stats.*
 
 class StatsFragment : SmartFragment(R.layout.fragment_stats) {
 
@@ -21,8 +21,9 @@ class StatsFragment : SmartFragment(R.layout.fragment_stats) {
 //        et_temp.typeface = Fonts.getFuturaPtMedium()
 //        btn_next.typeface = Fonts.getFuturaPtBook()
 //        btn_next.transformationMethod = null
+        labelText.typeface = Fonts.getKallisto()
         cont_temp_fragment.startAnimation(Anim.getAppear(context))
-//        btn_next.startAnimation(Anim.getAppearSlide(context, 500))
+        labelText.startAnimation(Anim.getAppearSlide(context, 200))
     }
 
     fun onNextButtonClick() {

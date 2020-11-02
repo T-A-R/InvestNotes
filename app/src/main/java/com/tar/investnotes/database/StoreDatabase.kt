@@ -12,11 +12,12 @@ import java.util.ArrayList
 @Database(
     entities = [
         UserR::class,
+        IndexR::class,
         OwnerR::class,
         BrokerR::class,
         InvestTypeR::class,
         InvestmentR::class
-    ], version = 1, exportSchema = false
+    ], version = 12, exportSchema = false
 )
 
 abstract class StoreDatabase : RoomDatabase() {
