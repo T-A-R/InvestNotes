@@ -18,4 +18,5 @@
     <string name="add">ADD</string>
     <string name="enter_code_here">enter code here</string>
     <string name="continue_btn">Continue</string>
+    <string name="please_enter_value">Please enter value</string>
 </resources>

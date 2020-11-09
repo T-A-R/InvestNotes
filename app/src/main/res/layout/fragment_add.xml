@@ -72,9 +72,8 @@
                     android:layout_marginEnd="@dimen/_8sdp"
                     android:layout_marginBottom="@dimen/_2sdp"
                     android:layout_marginStart="@dimen/_8sdp"
-                    android:text="Owner"
                     android:textColor="@color/gray"
-                    android:textSize="@dimen/_20ssp"
+                    android:textSize="@dimen/_16ssp"
                     android:visibility="visible" />
 
             </RelativeLayout>
@@ -119,9 +118,8 @@
                     android:layout_marginEnd="@dimen/_8sdp"
                     android:layout_marginBottom="@dimen/_2sdp"
                     android:layout_marginStart="@dimen/_8sdp"
-                    android:text="Investment type"
                     android:textColor="@color/gray"
-                    android:textSize="@dimen/_20ssp"
+                    android:textSize="@dimen/_16ssp"
                     android:visibility="visible" />
 
             </RelativeLayout>
@@ -165,9 +163,8 @@
                     android:layout_marginEnd="@dimen/_8sdp"
                     android:layout_marginBottom="@dimen/_2sdp"
                     android:layout_marginStart="@dimen/_8sdp"
-                    android:text="Broker"
                     android:textColor="@color/gray"
-                    android:textSize="@dimen/_20ssp"
+                    android:textSize="@dimen/_16ssp"
                     android:visibility="visible" />
 
             </RelativeLayout>
@@ -211,9 +208,8 @@
                     android:layout_marginEnd="@dimen/_8sdp"
                     android:layout_marginBottom="@dimen/_2sdp"
                     android:layout_marginStart="@dimen/_8sdp"
-                    android:text="Investment"
                     android:textColor="@color/gray"
-                    android:textSize="@dimen/_20ssp"
+                    android:textSize="@dimen/_16ssp"
                     android:visibility="visible" />
 
             </RelativeLayout>
@@ -257,9 +253,8 @@
                     android:layout_marginEnd="@dimen/_8sdp"
                     android:layout_marginBottom="@dimen/_2sdp"
                     android:layout_marginStart="@dimen/_8sdp"
-                    android:text="100 $"
                     android:textColor="@color/gray"
-                    android:textSize="@dimen/_20ssp"
+                    android:textSize="@dimen/_16ssp"
                     android:visibility="visible" />
 
             </RelativeLayout>
@@ -303,9 +298,8 @@
                     android:layout_marginEnd="@dimen/_8sdp"
                     android:layout_marginBottom="@dimen/_2sdp"
                     android:layout_marginStart="@dimen/_8sdp"
-                    android:text="10"
                     android:textColor="@color/gray"
-                    android:textSize="@dimen/_20ssp"
+                    android:textSize="@dimen/_16ssp"
                     android:visibility="visible" />
 
             </RelativeLayout>
@@ -349,9 +343,8 @@
                     android:layout_marginEnd="@dimen/_8sdp"
                     android:layout_marginBottom="@dimen/_2sdp"
                     android:layout_marginStart="@dimen/_8sdp"
-                    android:text="10 $"
                     android:textColor="@color/gray"
-                    android:textSize="@dimen/_20ssp"
+                    android:textSize="@dimen/_16ssp"
                     android:visibility="visible" />
 
             </RelativeLayout>
@@ -395,9 +388,8 @@
                     android:layout_marginEnd="@dimen/_8sdp"
                     android:layout_marginBottom="@dimen/_2sdp"
                     android:layout_marginStart="@dimen/_8sdp"
-                    android:text="21.10.2020"
                     android:textColor="@color/gray"
-                    android:textSize="@dimen/_20ssp"
+                    android:textSize="@dimen/_16ssp"
                     android:visibility="visible" />
 
             </RelativeLayout>
@@ -428,9 +420,8 @@
                     android:layout_below="@+id/totalLabel"
                     android:layout_marginBottom="@dimen/_2sdp"
                     android:layout_marginStart="@dimen/_8sdp"
-                    android:text="990 $"
                     android:textColor="@color/gray"
-                    android:textSize="@dimen/_20ssp"
+                    android:textSize="@dimen/_16ssp"
                     android:visibility="visible" />
 
             </RelativeLayout>

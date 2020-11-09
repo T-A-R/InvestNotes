@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.EditText
 import android.widget.ListView
 import android.app.AlertDialog
+import android.widget.TextView
 import com.github.underscore.lodash.U
 import com.google.gson.GsonBuilder
 import com.jakewharton.rxbinding2.widget.RxTextView
@@ -38,7 +39,7 @@ class AddPresenter(private val activity: MainActivity, private val fragment: Add
     private val investment = InvestmentR()
     private var index = IndexR()
     var counter: Int = 0
-    private lateinit var alertDialog : AlertDialog
+    private lateinit var alertDialog: AlertDialog
 
     private var disposableSearchIndex: Disposable? = null
     val mNamesList = mutableListOf<IndexR>()
@@ -80,27 +81,40 @@ class AddPresenter(private val activity: MainActivity, private val fragment: Add
                 fragment.labelText.visibility = View.GONE
                 fragment.ownerCont.startAnimation(Anim.getEnterFromRight(activity))
                 fragment.ownerCont.visibility = View.VISIBLE
-                if (counter == 0) fragment.setType()
+                if (counter == 0) {
+                    counter++
+                    fragment.setType()
+                }
             }
             fragment.typeText -> {
                 investment.type = text
                 fragment.typeText.text = text
                 fragment.typeCont.startAnimation(Anim.getEnterFromRight(activity))
                 fragment.typeCont.visibility = View.VISIBLE
-                if (counter == 1) fragment.setBroker()
+                if (counter == 1) {
+                    counter++
+                    fragment.setBroker()
+                }
             }
             fragment.brokerText -> {
                 investment.broker = text
                 fragment.brokerText.text = text
                 fragment.brokerCont.startAnimation(Anim.getEnterFromRight(activity))
                 fragment.brokerCont.visibility = View.VISIBLE
-                if (counter == 2) fragment.setInvestment()
+                if (counter == 2) {
+                    counter++
+                    fragment.setInvestment()
+                }
             }
             fragment.investNameText -> {
                 investment.code = text
                 fragment.investNameText.text = text
                 fragment.investNameCont.startAnimation(Anim.getEnterFromRight(activity))
                 fragment.investNameCont.visibility = View.VISIBLE
+                val data = IndexR()
+                data.shortName = text
+                stopSearchIndex()
+                setIndex(data)
             }
             fragment.priceText -> {
                 val priceFloat: Float = text.toFloat()
@@ -109,7 +123,10 @@ class AddPresenter(private val activity: MainActivity, private val fragment: Add
                 fragment.priceText.text = priceString
                 fragment.priceCont.startAnimation(Anim.getEnterFromRight(activity))
                 fragment.priceCont.visibility = View.VISIBLE
-                if (counter == 4) fragment.setQuantity()
+                if (counter == 4) {
+                    counter++
+                    fragment.setQuantity()
+                }
             }
             fragment.quantityText -> {
                 val quantity = text.toInt()
@@ -117,7 +134,10 @@ class AddPresenter(private val activity: MainActivity, private val fragment: Add
                 fragment.quantityText.text = "$quantity"
                 fragment.quantityCont.startAnimation(Anim.getEnterFromRight(activity))
                 fragment.quantityCont.visibility = View.VISIBLE
-                if (counter == 5) fragment.setCommission()
+                if (counter == 5) {
+                    counter++
+                    fragment.setCommission()
+                }
             }
             fragment.commissionText -> {
                 val commissionFloat: Float = text.toFloat()
@@ -137,11 +157,23 @@ class AddPresenter(private val activity: MainActivity, private val fragment: Add
                 fragment.totalCont.startAnimation(Anim.getEnterFromRight(activity, 400))
                 fragment.totalCont.visibility = View.VISIBLE
                 fragment.btnAdd.text = activity.getString(R.string.add)
+                counter = 7
             }
         }
-        if (counter != 7) counter++
-        else fragment.btnAdd.text = activity.getString(R.string.add)
+        if (counter == 7) fragment.btnAdd.text = activity.getString(R.string.add)
+    }
 
+    fun onCancelPress(view: TextView) {
+        when (view) {
+            fragment.ownerText -> if (view.text.isNotEmpty()) fragment.setContVisible(fragment.ownerCont)
+            fragment.typeText -> if (view.text.isNotEmpty()) fragment.setContVisible(fragment.typeCont)
+            fragment.brokerText -> if (view.text.isNotEmpty()) fragment.setContVisible(fragment.brokerCont)
+            fragment.investNameText -> if (view.text.isNotEmpty()) fragment.setContVisible(fragment.investNameCont)
+            fragment.priceText -> if (view.text.isNotEmpty()) fragment.setContVisible(fragment.priceCont)
+            fragment.quantityText -> if (view.text.isNotEmpty()) fragment.setContVisible(fragment.quantityCont)
+            fragment.commissionText -> if (view.text.isNotEmpty()) fragment.setContVisible(fragment.commissionCont)
+            fragment.dateText -> if (view.text.isNotEmpty()) fragment.setContVisible(fragment.dateCont)
+        }
     }
 
     private fun setIndex(indexR: IndexR) {
@@ -149,13 +181,13 @@ class AddPresenter(private val activity: MainActivity, private val fragment: Add
         fragment.investNameText.text = indexR.shortName
         fragment.investNameCont.startAnimation(Anim.getEnterFromRight(activity))
         fragment.investNameCont.visibility = View.VISIBLE
-        if(counter == 3) {
+        if (counter == 3) {
             counter++
             fragment.setPrice()
         }
     }
 
-    fun setDate(date : Long) {
+    fun setDate(date: Long) {
         investment.date = date
     }
 

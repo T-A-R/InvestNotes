@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.tar.investnotes.activities.MainActivity
 import com.tar.investnotes.database.StoreDao
+import com.tar.investnotes.utils.Anim
 
 abstract class SmartFragment(var layoutSrc: Int) : Fragment() {
 
@@ -135,5 +136,17 @@ abstract class SmartFragment(var layoutSrc: Int) : Fragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         hideScreensaver()
+    }
+
+    fun setContVisible(view: View) {
+        view.startAnimation(Anim.getEnterFromRight(activity, 400))
+        view.visibility = View.VISIBLE
+    }
+
+    fun setContInvisible(view: View) {
+        if (view.visibility == View.VISIBLE) {
+            view.startAnimation(Anim.getExitToRight(context))
+            view.visibility = View.INVISIBLE
+        }
     }
 }

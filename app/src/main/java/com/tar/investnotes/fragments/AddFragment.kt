@@ -4,16 +4,17 @@ import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.content.Context
+import android.text.InputType
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import android.view.inputmethod.EditorInfo
 import android.widget.*
 import com.tar.investnotes.R
 import com.tar.investnotes.activities.MainActivity.Companion.TAG
 import com.tar.investnotes.adapters.CustomListAdapter
 import com.tar.investnotes.presenters.AddPresenter
 import com.tar.investnotes.utils.Anim
-import com.tar.investnotes.utils.DateUtils
 import com.tar.investnotes.utils.Fonts
 import kotlinx.android.synthetic.main.fragment_add.*
 import java.text.SimpleDateFormat
@@ -63,6 +64,7 @@ class AddFragment : SmartFragment(R.layout.fragment_add) {
         btnAdd.setOnClickListener { onAddButtonClick() }
         btnReloadOwner.setOnClickListener { setOwner() }
         btnReloadType.setOnClickListener { setType() }
+        btnReloadBroker.setOnClickListener { setBroker() }
         btnReloadInvestName.setOnClickListener { setInvestment() }
         btnReloadPrice.setOnClickListener { setPrice() }
         btnReloadQuantity.setOnClickListener { setQuantity() }
@@ -89,7 +91,6 @@ class AddFragment : SmartFragment(R.layout.fragment_add) {
         val mValueEt = mView.findViewById(R.id.dialogEditText) as EditText
         val mCancelBtn = mView.findViewById(R.id.btnCancel) as Button
         val mSetBtn = mView.findViewById(R.id.btnSet) as Button
-        val mFindBtn = mView.findViewById(R.id.btnFind) as ImageView
         val mListView = mView.findViewById(R.id.listView) as ListView
 
         list?.let {
@@ -108,6 +109,7 @@ class AddFragment : SmartFragment(R.layout.fragment_add) {
         mCancelBtn.setOnClickListener {
             run {
                 if (!getMainActivity().isFinishing) alertDialog.dismiss()
+                presenter.onCancelPress(textView)
             }
         }
         mSetBtn.setOnClickListener {
@@ -117,16 +119,42 @@ class AddFragment : SmartFragment(R.layout.fragment_add) {
                     if (!getMainActivity().isFinishing) alertDialog.dismiss()
                     presenter.setValue(textView, mValueEt.text.toString())
                 } else {
-                    //TODO MAKE BTN GRAY
+                    showToast(getString(R.string.please_enter_value))
                 }
             }
         }
 
-        if (textView == investNameText) {
-            mValueEt.hint = getString(R.string.enter_code_here)
-            presenter.setDialog(alertDialog)
-            presenter.findIndex(mValueEt, mListView)
+        mValueEt.setOnEditorActionListener { _, actionId, _ ->
+            var handled = false
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                if (mValueEt.text.isNotEmpty()) {
+                    presenter.stopSearchIndex()
+                    if (!getMainActivity().isFinishing) alertDialog.dismiss()
+                    presenter.setValue(textView, mValueEt.text.toString())
+                    handled = true
+                } else {
+                    showToast(getString(R.string.please_enter_value))
+                }
+
+            }
+            handled
         }
+
+        when (textView) {
+            investNameText -> {
+                mValueEt.hint = getString(R.string.enter_code_here)
+                presenter.setDialog(alertDialog)
+                presenter.findIndex(mValueEt, mListView)
+            }
+            priceText, commissionText -> {
+                mValueEt.inputType = InputType.TYPE_CLASS_NUMBER + InputType.TYPE_NUMBER_FLAG_DECIMAL
+            }
+            quantityText -> {
+                mValueEt.inputType = InputType.TYPE_CLASS_NUMBER
+            }
+        }
+
+
 
         if (!getMainActivity().isFinishing) alertDialog.show()
 
@@ -148,81 +176,61 @@ class AddFragment : SmartFragment(R.layout.fragment_add) {
     }
 
     private fun setOwner() {
-        if (ownerCont.visibility == View.VISIBLE) {
-            ownerCont.startAnimation(Anim.getExitToRight(context))
-            ownerCont.visibility = View.INVISIBLE
-        }
+        setContInvisible(ownerCont)
         showInputDialog("Enter Owner of Investment", ownerText, presenter.getAllOwners())
     }
 
     fun setType() {
-        if (typeCont.visibility == View.VISIBLE) {
-            typeCont.startAnimation(Anim.getExitToRight(context))
-            typeCont.visibility = View.INVISIBLE
-        }
+        setContInvisible(typeCont)
         showInputDialog("Enter Type of Investment", typeText, presenter.getInvestTypes())
     }
 
     fun setBroker() {
-        if (brokerCont.visibility == View.VISIBLE) {
-            brokerCont.startAnimation(Anim.getExitToRight(context))
-            brokerCont.visibility = View.INVISIBLE
-        }
+        setContInvisible(brokerCont)
         showInputDialog("Enter Broker", brokerText, presenter.getBrokers())
     }
 
     fun setInvestment() {
-        if (investNameCont.visibility == View.VISIBLE) {
-            investNameCont.startAnimation(Anim.getExitToRight(context))
-            investNameCont.visibility = View.INVISIBLE
-        }
+        setContInvisible(investNameCont)
         showInputDialog("Enter Code or Name of Investment", investNameText, null)
     }
 
     fun setPrice() {
-        if (priceCont.visibility == View.VISIBLE) {
-            priceCont.startAnimation(Anim.getExitToRight(context))
-            priceCont.visibility = View.INVISIBLE
-        }
+        setContInvisible(priceCont)
         showInputDialog("Enter Price of unit", priceText, null)
     }
 
     fun setQuantity() {
-        if (quantityCont.visibility == View.VISIBLE) {
-            quantityCont.startAnimation(Anim.getExitToRight(context))
-            quantityCont.visibility = View.INVISIBLE
-        }
+        setContInvisible(quantityCont)
         showInputDialog("Enter Quantity", quantityText, null)
     }
 
     fun setCommission() {
-        if (commissionCont.visibility == View.VISIBLE) {
-            commissionCont.startAnimation(Anim.getExitToRight(context))
-            commissionCont.visibility = View.INVISIBLE
-        }
+        setContInvisible(commissionCont)
         showInputDialog("Enter Commission", commissionText, null)
     }
 
     @SuppressLint("SimpleDateFormat")
     private fun setDate() {
         val mCalendar = Calendar.getInstance()
-
-        DatePickerDialog(
-            activity as Context, { view: DatePicker?, year: Int, monthOfYear: Int, dayOfMonth: Int ->
+        setContInvisible(dateCont)
+        val dialog = DatePickerDialog(
+            activity as Context, { _: DatePicker?, year: Int, monthOfYear: Int, dayOfMonth: Int ->
                 mCalendar[Calendar.YEAR] = year
                 mCalendar[Calendar.MONTH] = monthOfYear
                 mCalendar[Calendar.DAY_OF_MONTH] = dayOfMonth
                 val dateFormat = SimpleDateFormat("dd.MM.yyyy")
                 dateFormat.timeZone = mCalendar.timeZone
                 dateText.text = dateFormat.format(mCalendar.time)
-//                dateText.text = "${DateUtils.getFormattedDate(DateUtils.PATTERN_DAY,mCalendar.timeInMillis / 1000)}"
                 presenter.setDate(mCalendar.timeInMillis / 1000)
             },
             mCalendar[Calendar.YEAR],
             mCalendar[Calendar.MONTH],
             mCalendar[Calendar.DAY_OF_MONTH]
         )
-            .show()
-
+        dialog.setOnDismissListener { setContVisible(dateCont) }
+        dialog.show()
     }
+
+
 }
