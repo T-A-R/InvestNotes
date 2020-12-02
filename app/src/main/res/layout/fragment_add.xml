@@ -73,7 +73,7 @@
                     android:layout_marginBottom="@dimen/_2sdp"
                     android:layout_marginStart="@dimen/_8sdp"
                     android:textColor="@color/gray"
-                    android:textSize="@dimen/_16ssp"
+                    android:textSize="@dimen/_12ssp"
                     android:visibility="visible" />
 
             </RelativeLayout>
@@ -119,7 +119,7 @@
                     android:layout_marginBottom="@dimen/_2sdp"
                     android:layout_marginStart="@dimen/_8sdp"
                     android:textColor="@color/gray"
-                    android:textSize="@dimen/_16ssp"
+                    android:textSize="@dimen/_12ssp"
                     android:visibility="visible" />
 
             </RelativeLayout>
@@ -164,7 +164,7 @@
                     android:layout_marginBottom="@dimen/_2sdp"
                     android:layout_marginStart="@dimen/_8sdp"
                     android:textColor="@color/gray"
-                    android:textSize="@dimen/_16ssp"
+                    android:textSize="@dimen/_12ssp"
                     android:visibility="visible" />
 
             </RelativeLayout>
@@ -209,7 +209,7 @@
                     android:layout_marginBottom="@dimen/_2sdp"
                     android:layout_marginStart="@dimen/_8sdp"
                     android:textColor="@color/gray"
-                    android:textSize="@dimen/_16ssp"
+                    android:textSize="@dimen/_12ssp"
                     android:visibility="visible" />
 
             </RelativeLayout>
@@ -254,7 +254,7 @@
                     android:layout_marginBottom="@dimen/_2sdp"
                     android:layout_marginStart="@dimen/_8sdp"
                     android:textColor="@color/gray"
-                    android:textSize="@dimen/_16ssp"
+                    android:textSize="@dimen/_12ssp"
                     android:visibility="visible" />
 
             </RelativeLayout>
@@ -299,7 +299,7 @@
                     android:layout_marginBottom="@dimen/_2sdp"
                     android:layout_marginStart="@dimen/_8sdp"
                     android:textColor="@color/gray"
-                    android:textSize="@dimen/_16ssp"
+                    android:textSize="@dimen/_12ssp"
                     android:visibility="visible" />
 
             </RelativeLayout>
@@ -344,7 +344,7 @@
                     android:layout_marginBottom="@dimen/_2sdp"
                     android:layout_marginStart="@dimen/_8sdp"
                     android:textColor="@color/gray"
-                    android:textSize="@dimen/_16ssp"
+                    android:textSize="@dimen/_12ssp"
                     android:visibility="visible" />
 
             </RelativeLayout>
@@ -389,7 +389,7 @@
                     android:layout_marginBottom="@dimen/_2sdp"
                     android:layout_marginStart="@dimen/_8sdp"
                     android:textColor="@color/gray"
-                    android:textSize="@dimen/_16ssp"
+                    android:textSize="@dimen/_12ssp"
                     android:visibility="visible" />
 
             </RelativeLayout>
@@ -421,7 +421,7 @@
                     android:layout_marginBottom="@dimen/_2sdp"
                     android:layout_marginStart="@dimen/_8sdp"
                     android:textColor="@color/gray"
-                    android:textSize="@dimen/_16ssp"
+                    android:textSize="@dimen/_12ssp"
                     android:visibility="visible" />
 
             </RelativeLayout>

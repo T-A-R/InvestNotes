@@ -6,9 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import com.tar.investnotes.R
+import com.tar.investnotes.database.models.IndexR
 import com.tar.investnotes.utils.Fonts
 
-class CustomListAdapter(private var list: List<String>, private val editText: EditText, private val context: Context) : BaseAdapter(), ListAdapter {
+class CustomListAdapter(private var list: List<String>, private val parentView: View, private val context: Context, private val listener: OnItemClick) : BaseAdapter(), ListAdapter {
 
     private var item: String = ""
 
@@ -47,9 +48,14 @@ class CustomListAdapter(private var list: List<String>, private val editText: Ed
         cont.setOnClickListener {
             run {
                 item = text
-                editText.setText(text)
+//                editText.setText(text)
+                listener.onItemClicked(text, parentView)
             }
         }
         return view
+    }
+
+    interface OnItemClick {
+        fun onItemClicked(data: String, view : View)
     }
 }

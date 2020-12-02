@@ -15,12 +15,10 @@ import com.tar.investnotes.R
 import com.tar.investnotes.activities.MainActivity
 import com.tar.investnotes.activities.MainActivity.Companion.TAG
 import com.tar.investnotes.adapters.CustomCompanyListAdapter
+import com.tar.investnotes.adapters.CustomListAdapter
 import com.tar.investnotes.api.responses.index.IndexObject
 import com.tar.investnotes.api.responses.index.Row
-import com.tar.investnotes.database.models.IndexR
-import com.tar.investnotes.database.models.InvestTypeR
-import com.tar.investnotes.database.models.InvestmentR
-import com.tar.investnotes.database.models.OwnerR
+import com.tar.investnotes.database.models.*
 import com.tar.investnotes.fragments.AddFragment
 import com.tar.investnotes.utils.Anim
 import com.tar.investnotes.utils.DateUtils
@@ -34,7 +32,7 @@ import kotlinx.android.synthetic.main.fragment_add.*
 import okhttp3.ResponseBody
 import java.util.concurrent.TimeUnit
 
-class AddPresenter(private val activity: MainActivity, private val fragment: AddFragment) : CustomCompanyListAdapter.OnCompanyClick {
+class AddPresenter(private val activity: MainActivity, private val fragment: AddFragment) : CustomCompanyListAdapter.OnCompanyClick, CustomListAdapter.OnItemClick {
 
     private val investment = InvestmentR()
     private var index = IndexR()
@@ -63,8 +61,11 @@ class AddPresenter(private val activity: MainActivity, private val fragment: Add
             owner.name = investment.owner
             val type = InvestTypeR()
             type.name = investment.type
+            val broker = BrokerR()
+            broker.name = investment.broker
             activity.getDao().insertOwner(owner)
             activity.getDao().insertInvestType(type)
+            activity.getDao().insertBroker(broker)
             activity.getDao().insertIndex(index)
             activity.getDao().insertInvestment(investment)
             true
@@ -74,6 +75,7 @@ class AddPresenter(private val activity: MainActivity, private val fragment: Add
     }
 
     fun setValue(view: View, text: String) {
+        Log.d(TAG, "setValue:  $view / ${fragment.ownerText}")
         when (view) {
             fragment.ownerText -> {
                 investment.owner = text
@@ -160,6 +162,7 @@ class AddPresenter(private val activity: MainActivity, private val fragment: Add
                 counter = 7
             }
         }
+        Log.d(TAG, "setValue: END " + counter)
         if (counter == 7) fragment.btnAdd.text = activity.getString(R.string.add)
     }
 
@@ -178,6 +181,7 @@ class AddPresenter(private val activity: MainActivity, private val fragment: Add
 
     private fun setIndex(indexR: IndexR) {
         index = indexR
+        investment.code = index.code
         fragment.investNameText.text = indexR.shortName
         fragment.investNameCont.startAnimation(Anim.getEnterFromRight(activity))
         fragment.investNameCont.visibility = View.VISIBLE
@@ -286,4 +290,18 @@ class AddPresenter(private val activity: MainActivity, private val fragment: Add
         }
     }
 
+    fun getListAdapter(view: View, list: List<String>) : CustomListAdapter {
+        return CustomListAdapter(list, view, activity, this)
+    }
+
+    override fun onItemClicked(data: String, view: View) {
+
+        try {
+            alertDialog.dismiss()
+            Log.d(TAG, "onItemClicked: DISS")
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        setValue(view, data)
+    }
 }

@@ -11,7 +11,6 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.*
 import com.tar.investnotes.R
-import com.tar.investnotes.activities.MainActivity.Companion.TAG
 import com.tar.investnotes.adapters.CustomListAdapter
 import com.tar.investnotes.presenters.AddPresenter
 import com.tar.investnotes.utils.Anim
@@ -25,8 +24,6 @@ class AddFragment : SmartFragment(R.layout.fragment_add) {
     private lateinit var presenter: AddPresenter
 
     override fun onReady() {
-        Log.d(TAG, "onReady: AddFragment")
-
         presenter = AddPresenter(getMainActivity(), this)
 
         initViews()
@@ -34,7 +31,6 @@ class AddFragment : SmartFragment(R.layout.fragment_add) {
         showMenu()
 
         startAddItemProcess()
-
     }
 
     private fun initViews() {
@@ -70,7 +66,6 @@ class AddFragment : SmartFragment(R.layout.fragment_add) {
         btnReloadQuantity.setOnClickListener { setQuantity() }
         btnReloadCommission.setOnClickListener { setCommission() }
         btnReloadDate.setOnClickListener { setDate() }
-
     }
 
     private fun startAddItemProcess() {
@@ -93,13 +88,16 @@ class AddFragment : SmartFragment(R.layout.fragment_add) {
         val mSetBtn = mView.findViewById(R.id.btnSet) as Button
         val mListView = mView.findViewById(R.id.listView) as ListView
 
-        list?.let {
-            val adapter = CustomListAdapter(list, mValueEt, getMainActivity())
-            mListView.adapter = adapter
-        }
-
         dialog.setCancelable(false)
         val alertDialog = dialog.create()
+
+        list?.let {
+//            val adapter = CustomListAdapter(list, mValueEt, getMainActivity())
+            presenter.setDialog(alertDialog)
+            mListView.adapter = presenter.getListAdapter(textView, list)
+            mListView.visibility = if (list.isNotEmpty()) View.VISIBLE else View.GONE
+
+        }
 
         mLabelTv.text = mLabel
         mLabelTv.typeface = Fonts.getKallisto()
@@ -153,8 +151,6 @@ class AddFragment : SmartFragment(R.layout.fragment_add) {
                 mValueEt.inputType = InputType.TYPE_CLASS_NUMBER
             }
         }
-
-
 
         if (!getMainActivity().isFinishing) alertDialog.show()
 

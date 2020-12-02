@@ -12,6 +12,8 @@
 
     <color name="green">#7ed084</color>
     <color name="green_light">#7ed084</color>
+    <color name="positive">#03AC10</color>
+    <color name="negative">#CC2418</color>
     <color name="blue">#6974e0</color>
     <color name="blueBg">#E3EDFF</color>
     <color name="midGrayBg">#F2F2F2</color>

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/cont_temp_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginStart="@dimen/_3sdp"
     android:background="@drawable/running_man">
 
     <TextView
@@ -18,4 +17,11 @@
         android:background="@drawable/shadow"
         android:visibility="visible" />
 
-</FrameLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/stockRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/labelText"
+        android:layout_marginBottom="90dp"/>
+
+</RelativeLayout>
