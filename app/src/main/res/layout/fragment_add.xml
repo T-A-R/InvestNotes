@@ -18,11 +18,12 @@
         android:text="@string/label_add_item"
         android:textColor="@color/gray"
         android:textSize="@dimen/_40ssp"
-        android:visibility="visible" />
+        android:visibility="gone" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_below="@+id/labelText"
         android:layout_above="@+id/btnAdd">
 

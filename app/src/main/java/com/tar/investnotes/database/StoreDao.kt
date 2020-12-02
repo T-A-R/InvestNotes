@@ -75,7 +75,7 @@ interface StoreDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertIndex(indexR: IndexR)
 
-    @Query("SELECT * FROM IndexR WHERE id = :id LIMIT 1")
-    fun getIndex(id : String): IndexR?
+    @Query("SELECT * FROM IndexR WHERE code = :code LIMIT 1")
+    fun getIndex(code : String): IndexR?
 
 }

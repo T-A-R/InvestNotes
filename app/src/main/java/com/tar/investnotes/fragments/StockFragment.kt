@@ -52,7 +52,7 @@ class StockFragment : SmartFragment(R.layout.fragment_stock) {
 
         if(!investList.isNullOrEmpty()) {
             stockRecyclerView.layoutManager = LinearLayoutManager(getMainActivity(), RecyclerView.VERTICAL, false)
-            val adapter = StockAdapter(investList!!)
+            val adapter = StockAdapter(investList!!, getMainActivity())
             stockRecyclerView.adapter = adapter
         }
     }

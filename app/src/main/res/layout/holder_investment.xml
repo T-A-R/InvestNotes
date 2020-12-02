@@ -14,7 +14,7 @@
         android:layout_marginStart="@dimen/_8sdp"
         android:layout_marginTop="@dimen/_3sdp"
         android:layout_marginEnd="@dimen/_8sdp"
-        android:layout_toStartOf="@+id/costLabel"
+        android:layout_toStartOf="@+id/profitMarker"
         android:text="Investment"
         android:textColor="@color/brand_color_dark"
         android:textSize="@dimen/_10ssp"
@@ -30,7 +30,7 @@
         android:layout_toStartOf="@+id/quantityLabel"
         android:text="Broker"
         android:textColor="@color/gray"
-        android:textSize="@dimen/_10ssp"
+        android:textSize="@dimen/_8ssp"
         android:visibility="visible" />
 
     <TextView
@@ -44,7 +44,7 @@
         android:layout_toStartOf="@+id/profitMarker"
         android:text="Owner"
         android:textColor="@color/gray"
-        android:textSize="@dimen/_10ssp"
+        android:textSize="@dimen/_8ssp"
         android:visibility="visible" />
 
     <TextView
@@ -74,11 +74,11 @@
 
     <ImageView
         android:id="@+id/profitMarker"
-        android:layout_width="@dimen/_10sdp"
-        android:layout_height="@dimen/_10sdp"
+        android:layout_width="@dimen/_8sdp"
+        android:layout_height="@dimen/_8sdp"
         android:layout_toStartOf="@+id/profitLabel"
         android:layout_below="@+id/quantityLabel"
-        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginTop="@dimen/_1sdp"
         android:layout_marginEnd="@dimen/_2sdp"/>
 
     <TextView
@@ -91,7 +91,7 @@
         android:layout_marginBottom="@dimen/_2sdp"
         android:text="0 (0%)"
         android:textColor="@color/positive"
-        android:textSize="@dimen/_10ssp"
+        android:textSize="@dimen/_8ssp"
         android:visibility="visible" />
 
 </RelativeLayout>
