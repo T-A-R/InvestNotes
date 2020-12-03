@@ -19,4 +19,5 @@
     <string name="enter_code_here">enter code here</string>
     <string name="continue_btn">Continue</string>
     <string name="please_enter_value">Please enter value</string>
+    <string name="all">All</string>
 </resources>

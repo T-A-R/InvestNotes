@@ -75,7 +75,10 @@
             style="@style/ButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/_20sdp"
-            android:layout_margin="@dimen/_2sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginBottom="@dimen/_4sdp"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:layout_marginEnd="@dimen/_2sdp"
             android:maxLines="1"
             android:text="All"
             android:textSize="@dimen/_11ssp" />
@@ -85,7 +88,10 @@
             style="@style/ButtonStyleWhite"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/_20sdp"
-            android:layout_margin="@dimen/_2sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginBottom="@dimen/_4sdp"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:layout_marginEnd="@dimen/_2sdp"
             android:maxLines="1"
             android:text="Owner"
             android:textSize="@dimen/_11ssp" />
@@ -95,7 +101,10 @@
             style="@style/ButtonStyleWhite"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/_20sdp"
-            android:layout_margin="@dimen/_2sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginBottom="@dimen/_4sdp"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:layout_marginEnd="@dimen/_2sdp"
             android:maxLines="1"
             android:text="Broker"
             android:textSize="@dimen/_11ssp" />
@@ -105,7 +114,10 @@
             style="@style/ButtonStyleWhite"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/_20sdp"
-            android:layout_margin="@dimen/_2sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginBottom="@dimen/_4sdp"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:layout_marginEnd="@dimen/_2sdp"
             android:maxLines="1"
             android:text="Type"
             android:textSize="@dimen/_11ssp" />
@@ -118,12 +130,14 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/stockHeaderCont"
         android:layout_centerHorizontal="true"
+        android:scrollbars="none"
         android:visibility="gone">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/colorWhite"
+            android:layout_marginStart="@dimen/_2sdp"
             android:orientation="horizontal">
 
             <Button
@@ -131,7 +145,10 @@
                 style="@style/ButtonStyle"
                 android:layout_width="@dimen/_40sdp"
                 android:layout_height="@dimen/_20sdp"
-                android:layout_margin="@dimen/_2sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginBottom="@dimen/_4sdp"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:layout_marginEnd="@dimen/_2sdp"
                 android:maxLines="1"
                 android:text="$"
                 android:textSize="@dimen/_11ssp" />
@@ -141,7 +158,10 @@
                 style="@style/ButtonStyleWhite"
                 android:layout_width="@dimen/_40sdp"
                 android:layout_height="@dimen/_20sdp"
-                android:layout_margin="@dimen/_2sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginBottom="@dimen/_4sdp"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:layout_marginEnd="@dimen/_2sdp"
                 android:maxLines="1"
                 android:text="€"
                 android:textSize="@dimen/_11ssp" />
@@ -151,7 +171,10 @@
                 style="@style/ButtonStyleWhite"
                 android:layout_width="@dimen/_40sdp"
                 android:layout_height="@dimen/_20sdp"
-                android:layout_margin="@dimen/_2sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginBottom="@dimen/_4sdp"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:layout_marginEnd="@dimen/_2sdp"
                 android:maxLines="1"
                 android:text="₽"
                 android:textSize="@dimen/_11ssp" />
@@ -161,7 +184,10 @@
                 style="@style/ButtonStyleWhite"
                 android:layout_width="@dimen/_40sdp"
                 android:layout_height="@dimen/_20sdp"
-                android:layout_margin="@dimen/_2sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginBottom="@dimen/_4sdp"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:layout_marginEnd="@dimen/_2sdp"
                 android:maxLines="1"
                 android:text="元"
                 android:textSize="@dimen/_11ssp" />
@@ -171,7 +197,10 @@
                 style="@style/ButtonStyleWhite"
                 android:layout_width="@dimen/_40sdp"
                 android:layout_height="@dimen/_20sdp"
-                android:layout_margin="@dimen/_2sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginBottom="@dimen/_4sdp"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:layout_marginEnd="@dimen/_2sdp"
                 android:maxLines="1"
                 android:text="£"
                 android:textSize="@dimen/_11ssp" />
@@ -181,7 +210,10 @@
                 style="@style/ButtonStyleWhite"
                 android:layout_width="@dimen/_40sdp"
                 android:layout_height="@dimen/_20sdp"
-                android:layout_margin="@dimen/_2sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginBottom="@dimen/_4sdp"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:layout_marginEnd="@dimen/_2sdp"
                 android:maxLines="1"
                 android:text="₹"
                 android:textSize="@dimen/_11ssp" />
@@ -189,34 +221,25 @@
             <Button
                 android:id="@+id/btnBTN"
                 style="@style/ButtonStyleWhite"
-                android:layout_width="@dimen/_40sdp"
+                android:layout_width="@dimen/_60sdp"
                 android:layout_height="@dimen/_20sdp"
-                android:layout_margin="@dimen/_2sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginBottom="@dimen/_4sdp"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:layout_marginEnd="@dimen/_2sdp"
                 android:maxLines="1"
-                android:text="\u20BF"
+                android:text="BTC"
                 android:textSize="@dimen/_11ssp" />
 
         </LinearLayout>
 
     </HorizontalScrollView>
 
-    <TextView
-        android:id="@+id/labelTotal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/stockHeaderCont"
-        android:layout_marginStart="@dimen/_8sdp"
-        android:layout_marginTop="@dimen/_6sdp"
-        android:text="All"
-        android:textColor="@color/brand_color_dark"
-        android:textSize="@dimen/_14ssp"
-        android:visibility="visible" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/stockRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/labelTotal"
+        android:layout_below="@+id/stockHeaderCont"
         android:layout_marginBottom="90dp" />
 
     <!--    <com.tar.investnotes.views.MovableFloatingActionButton-->
