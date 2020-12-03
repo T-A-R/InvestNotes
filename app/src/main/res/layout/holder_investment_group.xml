@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ownerCont"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shadow"
+    android:gravity="center_vertical">
+
+    <TextView
+        android:id="@+id/investLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_toStartOf="@+id/profitMarker"
+        android:text="Investment"
+        android:textColor="@color/brand_color_dark"
+        android:textSize="@dimen/_10ssp"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/brokerLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/investLabel"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_toStartOf="@+id/quantityLabel"
+        android:text="Broker"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/_8ssp"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/ownerLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/brokerLabel"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_2sdp"
+        android:layout_toStartOf="@+id/profitMarker"
+        android:text="Owner"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/_8ssp"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/costLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:text="0 $"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_10ssp"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/quantityLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/costLabel"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:text="x 10"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/_10ssp"
+        android:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/profitMarker"
+        android:layout_width="@dimen/_8sdp"
+        android:layout_height="@dimen/_8sdp"
+        android:layout_toStartOf="@+id/profitLabel"
+        android:layout_below="@+id/quantityLabel"
+        android:layout_marginTop="@dimen/_1sdp"
+        android:layout_marginEnd="@dimen/_2sdp"/>
+
+    <TextView
+        android:id="@+id/profitLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/quantityLabel"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:layout_marginBottom="@dimen/_2sdp"
+        android:text="0 (0%)"
+        android:textColor="@color/positive"
+        android:textSize="@dimen/_8ssp"
+        android:visibility="visible" />
+
+</RelativeLayout>
