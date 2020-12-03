@@ -1,5 +1,6 @@
 package com.tar.investnotes.fragments
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -7,8 +8,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import android.widget.Button
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.tar.investnotes.R
 import com.tar.investnotes.activities.MainActivity
 import com.tar.investnotes.database.StoreDao
 import com.tar.investnotes.utils.Anim
@@ -147,6 +151,26 @@ abstract class SmartFragment(var layoutSrc: Int) : Fragment() {
         if (view.visibility == View.VISIBLE) {
             view.startAnimation(Anim.getExitToRight(context))
             view.visibility = View.INVISIBLE
+        }
+    }
+
+    fun setContGone(view: View) {
+        if (view.visibility == View.VISIBLE) {
+            view.startAnimation(Anim.getExitToRight(context))
+            view.visibility = View.GONE
+        }
+    }
+
+//    @SuppressLint("ResourceAsColor")
+    fun setButtonBackground(button: Button, pressed: Boolean) {
+        if (pressed) {
+            button.setBackgroundResource(R.drawable.button_background_blue)
+//            button.setTextColor(R.color.white)
+            button.setTextColor(ContextCompat.getColor(getMainActivity(), R.color.white));
+        } else {
+            button.setBackgroundResource(R.drawable.button_background_white)
+//            button.setTextColor(R.color.brand_color_dark)
+            button.setTextColor(ContextCompat.getColor(getMainActivity(), R.color.brand_color_dark));
         }
     }
 }

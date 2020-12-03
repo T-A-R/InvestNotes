@@ -5,23 +5,227 @@
     android:layout_height="match_parent"
     android:background="@drawable/running_man">
 
-    <TextView
-        android:id="@+id/labelText"
+    <RelativeLayout
+        android:id="@+id/stockHeaderCont"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:gravity="center_horizontal"
-        android:text="@string/label_stock"
-        android:textColor="@color/gray"
-        android:textSize="@dimen/_40ssp"
-        android:background="@drawable/shadow"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@drawable/shadow">
+
+        <TextView
+            android:id="@+id/labelText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="2000.00 $"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_20ssp"
+            android:visibility="visible" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/labelText"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/profitMarker"
+                android:layout_width="@dimen/_8sdp"
+                android:layout_height="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:layout_marginEnd="@dimen/_2sdp" />
+
+            <TextView
+                android:id="@+id/profitLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:layout_marginBottom="@dimen/_2sdp"
+                android:text="180.0 $ (12.6%)"
+                android:textColor="@color/positive"
+                android:textSize="@dimen/_10ssp"
+                android:visibility="visible" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/stockFilter"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:src="@drawable/filter_with_settings" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/filterCont"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/stockHeaderCont"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorWhite"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/btnAll"
+            style="@style/ButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_margin="@dimen/_2sdp"
+            android:maxLines="1"
+            android:text="All"
+            android:textSize="@dimen/_11ssp" />
+
+        <Button
+            android:id="@+id/btnOwnerFilter"
+            style="@style/ButtonStyleWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_margin="@dimen/_2sdp"
+            android:maxLines="1"
+            android:text="Owner"
+            android:textSize="@dimen/_11ssp" />
+
+        <Button
+            android:id="@+id/btnBrokerFilter"
+            style="@style/ButtonStyleWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_margin="@dimen/_2sdp"
+            android:maxLines="1"
+            android:text="Broker"
+            android:textSize="@dimen/_11ssp" />
+
+        <Button
+            android:id="@+id/btnTypeFilter"
+            style="@style/ButtonStyleWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_margin="@dimen/_2sdp"
+            android:maxLines="1"
+            android:text="Type"
+            android:textSize="@dimen/_11ssp" />
+
+    </LinearLayout>
+
+    <HorizontalScrollView
+        android:id="@+id/currencyCont"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/stockHeaderCont"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnUSD"
+                style="@style/ButtonStyle"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_margin="@dimen/_2sdp"
+                android:maxLines="1"
+                android:text="$"
+                android:textSize="@dimen/_11ssp" />
+
+            <Button
+                android:id="@+id/btnEURO"
+                style="@style/ButtonStyleWhite"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_margin="@dimen/_2sdp"
+                android:maxLines="1"
+                android:text="€"
+                android:textSize="@dimen/_11ssp" />
+
+            <Button
+                android:id="@+id/btnRUR"
+                style="@style/ButtonStyleWhite"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_margin="@dimen/_2sdp"
+                android:maxLines="1"
+                android:text="₽"
+                android:textSize="@dimen/_11ssp" />
+
+            <Button
+                android:id="@+id/btnCN"
+                style="@style/ButtonStyleWhite"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_margin="@dimen/_2sdp"
+                android:maxLines="1"
+                android:text="元"
+                android:textSize="@dimen/_11ssp" />
+
+            <Button
+                android:id="@+id/btnGBP"
+                style="@style/ButtonStyleWhite"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_margin="@dimen/_2sdp"
+                android:maxLines="1"
+                android:text="£"
+                android:textSize="@dimen/_11ssp" />
+
+            <Button
+                android:id="@+id/btnIND"
+                style="@style/ButtonStyleWhite"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_margin="@dimen/_2sdp"
+                android:maxLines="1"
+                android:text="₹"
+                android:textSize="@dimen/_11ssp" />
+
+            <Button
+                android:id="@+id/btnBTN"
+                style="@style/ButtonStyleWhite"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_margin="@dimen/_2sdp"
+                android:maxLines="1"
+                android:text="\u20BF"
+                android:textSize="@dimen/_11ssp" />
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/labelTotal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/stockHeaderCont"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:text="All"
+        android:textColor="@color/brand_color_dark"
+        android:textSize="@dimen/_14ssp"
         android:visibility="visible" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/stockRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/labelText"
-        android:layout_marginBottom="90dp"/>
+        android:layout_below="@+id/labelTotal"
+        android:layout_marginBottom="90dp" />
+
+    <!--    <com.tar.investnotes.views.MovableFloatingActionButton-->
+    <!--        android:id="@+id/btnFab"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_alignParentEnd="true"-->
+    <!--        android:layout_alignParentBottom="true"-->
+    <!--        android:layout_marginBottom="@dimen/_100sdp"-->
+    <!--        android:src="@drawable/ico_menu_menu" />-->
 
 </RelativeLayout>

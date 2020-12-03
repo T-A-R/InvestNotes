@@ -10,8 +10,16 @@
     <style name="ButtonStyle">
         <item name="android:paddingLeft">16dp</item>
         <item name="android:paddingRight">16dp</item>
-        <item name="android:background">@drawable/button_background_green</item>
+        <item name="android:background">@drawable/button_background_blue</item>
         <item name="android:textColor">@android:color/white</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="ButtonStyleWhite">
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:background">@drawable/button_background_white</item>
+        <item name="android:textColor">@color/brand_color_dark</item>
         <item name="android:textAllCaps">true</item>
     </style>
 
