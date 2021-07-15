@@ -195,6 +195,25 @@ class AddPresenter(private val activity: MainActivity, private val fragment: Add
         investment.date = date
     }
 
+//    fun findIndex(editText: EditText, listView: ListView) {
+//
+//        adapter = CustomCompanyListAdapter(mNamesList, editText, activity, this)
+//        listView.adapter = adapter
+//
+//        disposableSearchIndex = RxTextView.textChangeEvents(editText)
+//            .debounce(400, TimeUnit.MILLISECONDS)
+//            .filter { changes -> StringUtils.isNotNullOrEmpty(changes.text().toString()) }
+//            .map { listener -> listener.text().toString() }
+//            .flatMap {
+//                return@flatMap CoreApp.retrofitAPI?.getStockInfo(Constants.Default.API_ME_INDEX_URL + it + Constants.Default.API_ME_INDEX_PARAMS)
+//                    ?.onErrorResumeNext(Observable.empty())
+//            }
+//            .map { body -> getStringIndex(body) }
+//            .subscribeOn(Schedulers.io())
+//            .observeOn(AndroidSchedulers.mainThread())
+//            .subscribeWith(getSearchObserver(listView))
+//    }
+
     fun findIndex(editText: EditText, listView: ListView) {
 
         adapter = CustomCompanyListAdapter(mNamesList, editText, activity, this)
@@ -205,7 +224,7 @@ class AddPresenter(private val activity: MainActivity, private val fragment: Add
             .filter { changes -> StringUtils.isNotNullOrEmpty(changes.text().toString()) }
             .map { listener -> listener.text().toString() }
             .flatMap {
-                return@flatMap CoreApp.retrofitAPI?.getStockInfo(Constants.Default.API_ME_INDEX_URL + it + Constants.Default.API_ME_INDEX_PARAMS)
+                return@flatMap CoreApp.retrofitAPI?.getStockInfo(Constants.Default.API_YAHOO_FINANCE + it + Constants.Default.API_YAHOO_FINANCE_PARAMS)
                     ?.onErrorResumeNext(Observable.empty())
             }
             .map { body -> getStringIndex(body) }

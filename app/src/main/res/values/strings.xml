@@ -14,10 +14,20 @@
     <string name="menu_1">Menu 1</string>
     <string name="enter_value_here">enter value here</string>
     <string name="cancel">CANCEL</string>
+    <string name="delete">X</string>
     <string name="set">SET</string>
+    <string name="update">UPDATE</string>
+    <string name="close">CLOSE</string>
     <string name="add">ADD</string>
     <string name="enter_code_here">enter code here</string>
     <string name="continue_btn">Continue</string>
     <string name="please_enter_value">Please enter value</string>
     <string name="all">All</string>
+    <string name="dialog_enter_owner">Enter Owner of Investment</string>
+    <string name="dialog_enter_type">Enter Type of Investment</string>
+    <string name="dialog_enter_broker">Enter Broker</string>
+    <string name="dialog_enter_investments_name">Enter Code or Name of Investment</string>
+    <string name="dialog_enter_unit_price">Enter Price of unit</string>
+    <string name="dialog_enter_quantity">Enter Quantity</string>
+    <string name="dialog_enter_commission">Enter Commission</string>
 </resources>

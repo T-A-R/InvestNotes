@@ -177,6 +177,7 @@
                 android:background="@drawable/shadow"
                 android:gravity="center_vertical"
                 android:visibility="invisible">
+
                 <Button
                     android:id="@+id/btnReloadInvestName"
                     android:layout_width="@dimen/_20sdp"

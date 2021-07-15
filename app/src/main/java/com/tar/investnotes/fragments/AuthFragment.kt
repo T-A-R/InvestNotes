@@ -1,16 +1,26 @@
 package com.tar.investnotes.fragments
 
+//import javax.security.auth.callback.Callback
+
+import android.os.StrictMode
+import android.os.StrictMode.ThreadPolicy
 import android.util.Log
+import com.tar.investnotes.Constants
+import com.tar.investnotes.CoreApp
 import com.tar.investnotes.R
 import com.tar.investnotes.activities.MainActivity.Companion.TAG
-import com.tar.investnotes.database.models.UserR
 import com.tar.investnotes.utils.Anim
 import com.tar.investnotes.utils.Fonts
-import io.reactivex.Observable
-import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_temp.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import okhttp3.ResponseBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import yahoofinance.YahooFinance
+import java.io.BufferedReader
 
 
 class AuthFragment : SmartFragment(R.layout.fragment_auth) {
@@ -65,5 +75,19 @@ class AuthFragment : SmartFragment(R.layout.fragment_auth) {
         disposables.dispose()
     }
 
-
+//    fun getIndex(index: String) {
+//        GlobalScope.launch {
+//            val stock = YahooFinance.get(index)
+//            stock?.let {
+//                stock.print()
+//                val price = stock.getQuote(true).price
+//                val name = stock.name
+//                if (name != null) {
+//                    showToast("$name ${price?.toPlainString() ?: "-"}")
+//                } else {
+//                    showToast("Не найден")
+//                }
+//            }
+//        }
+//    }
 }

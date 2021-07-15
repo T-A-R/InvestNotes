@@ -16,8 +16,9 @@ import java.util.ArrayList
         OwnerR::class,
         BrokerR::class,
         InvestTypeR::class,
-        InvestmentR::class
-    ], version = 12, exportSchema = false
+        InvestmentR::class,
+        StockSymbolR::class
+    ], version = 14, exportSchema = false
 )
 
 abstract class StoreDatabase : RoomDatabase() {

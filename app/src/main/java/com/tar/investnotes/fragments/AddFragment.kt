@@ -5,13 +5,11 @@ import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.content.Context
 import android.text.InputType
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.*
 import com.tar.investnotes.R
-import com.tar.investnotes.adapters.CustomListAdapter
 import com.tar.investnotes.presenters.AddPresenter
 import com.tar.investnotes.utils.Anim
 import com.tar.investnotes.utils.Fonts
@@ -173,37 +171,37 @@ class AddFragment : SmartFragment(R.layout.fragment_add) {
 
     private fun setOwner() {
         setContInvisible(ownerCont)
-        showInputDialog("Enter Owner of Investment", ownerText, presenter.getAllOwners())
+        showInputDialog(getString(R.string.dialog_enter_owner), ownerText, presenter.getAllOwners())
     }
 
     fun setType() {
         setContInvisible(typeCont)
-        showInputDialog("Enter Type of Investment", typeText, presenter.getInvestTypes())
+        showInputDialog(getString(R.string.dialog_enter_type), typeText, presenter.getInvestTypes())
     }
 
     fun setBroker() {
         setContInvisible(brokerCont)
-        showInputDialog("Enter Broker", brokerText, presenter.getBrokers())
+        showInputDialog(getString(R.string.dialog_enter_broker), brokerText, presenter.getBrokers())
     }
 
     fun setInvestment() {
         setContInvisible(investNameCont)
-        showInputDialog("Enter Code or Name of Investment", investNameText, null)
+        showInputDialog(getString(R.string.dialog_enter_investments_name), investNameText, null)
     }
 
     fun setPrice() {
         setContInvisible(priceCont)
-        showInputDialog("Enter Price of unit", priceText, null)
+        showInputDialog(getString(R.string.dialog_enter_unit_price), priceText, null)
     }
 
     fun setQuantity() {
         setContInvisible(quantityCont)
-        showInputDialog("Enter Quantity", quantityText, null)
+        showInputDialog(getString(R.string.dialog_enter_quantity), quantityText, null)
     }
 
     fun setCommission() {
         setContInvisible(commissionCont)
-        showInputDialog("Enter Commission", commissionText, null)
+        showInputDialog(getString(R.string.dialog_enter_commission), commissionText, null)
     }
 
     @SuppressLint("SimpleDateFormat")

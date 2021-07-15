@@ -173,4 +173,5 @@ abstract class SmartFragment(var layoutSrc: Int) : Fragment() {
             button.setTextColor(ContextCompat.getColor(getMainActivity(), R.color.brand_color_dark));
         }
     }
+
 }

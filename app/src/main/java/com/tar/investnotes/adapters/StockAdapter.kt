@@ -6,15 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.tar.investnotes.R
 import com.tar.investnotes.activities.MainActivity
 import com.tar.investnotes.database.models.InvestmentR
 import com.tar.investnotes.utils.Fonts
-import kotlin.math.roundToInt
 
-class StockAdapter(val stockList: List<InvestmentR>, public val activity: MainActivity) : RecyclerView.Adapter<StockAdapter.StockHolder>() {
+class StockAdapter(private val stockList: List<InvestmentR>, val activity: MainActivity) : RecyclerView.Adapter<StockAdapter.StockHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StockHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.holder_investment, parent, false)
@@ -34,6 +34,7 @@ class StockAdapter(val stockList: List<InvestmentR>, public val activity: MainAc
 
         @SuppressLint("SetTextI18n")
         fun bindItems(investment: InvestmentR, name: String) {
+            val investCont = itemView.findViewById(R.id.investCont) as RelativeLayout
             val investLabel = itemView.findViewById(R.id.investLabel) as TextView
             val brokerLabel = itemView.findViewById(R.id.brokerLabel) as TextView
             val ownerLabel = itemView.findViewById(R.id.ownerLabel) as TextView

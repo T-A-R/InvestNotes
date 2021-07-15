@@ -1,32 +1,21 @@
 package com.tar.investnotes.fragments
 
-import android.annotation.SuppressLint
-import android.view.View
-import android.widget.Button
-import androidx.appcompat.view.ContextThemeWrapper
 import androidx.core.view.isVisible
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.tar.investnotes.Constants
 import com.tar.investnotes.R
-import com.tar.investnotes.R2.attr.buttonStyle
-import com.tar.investnotes.adapters.StockAdapter
-import com.tar.investnotes.adapters.StockGroupAdapter
-import com.tar.investnotes.database.models.InvestmentR
+import com.tar.investnotes.presenters.StockPresenter
 import com.tar.investnotes.utils.Anim
 import com.tar.investnotes.utils.Fonts
-import kotlinx.android.synthetic.main.fragment_add.*
 import kotlinx.android.synthetic.main.fragment_stock.*
 import kotlinx.android.synthetic.main.fragment_stock.cont_temp_fragment
 import kotlinx.android.synthetic.main.fragment_stock.labelText
 
 class StockFragment : SmartFragment(R.layout.fragment_stock) {
 
-    private var investList: List<InvestmentR>? = null
-    private var sortBy: String = "all"
-    lateinit var adapter: StockGroupAdapter
+    private lateinit var presenter: StockPresenter
 
     override fun onReady() {
-        investList = getDao().getAllInvestments()
+        presenter = StockPresenter(getMainActivity(), this)
 
         initViews()
         MainFragment.enableSideMenu()
@@ -63,45 +52,7 @@ class StockFragment : SmartFragment(R.layout.fragment_stock) {
         btnBrokerFilter.setOnClickListener { pressBrokerFilter() }
         btnTypeFilter.setOnClickListener { pressTypeFilter() }
 
-        setAdapter()
-    }
-
-    fun setAdapter() {
-        if (!investList.isNullOrEmpty()) {
-            stockRecyclerView.layoutManager = LinearLayoutManager(getMainActivity(), RecyclerView.VERTICAL, false)
-            val investments = mutableListOf<List<InvestmentR>>()
-            var map: Map<String, List<InvestmentR>>
-            when (sortBy) {
-                "all" -> {
-                    investments.add(investList!!)
-                }
-                "owner" -> {
-                    map = investList!!.groupBy { it.owner }
-                    map.forEach {
-                        investments.add(it.value)
-                    }
-                }
-                "broker" -> {
-                    map = investList!!.groupBy { it.broker }
-                    map.forEach {
-                        investments.add(it.value)
-                    }
-                }
-                "type" -> {
-                    map = investList!!.groupBy { it.type }
-                    map.forEach {
-                        investments.add(it.value)
-                    }
-                }
-            }
-
-            adapter = StockGroupAdapter(investments, sortBy, getMainActivity())
-            stockRecyclerView.adapter = adapter
-        }
-    }
-
-    override fun onBackPressed(): Boolean {
-        return true
+        presenter.setAdapter()
     }
 
     private fun pressFilter() {
@@ -130,9 +81,8 @@ class StockFragment : SmartFragment(R.layout.fragment_stock) {
         setButtonBackground(btnBrokerFilter, false)
         setButtonBackground(btnTypeFilter, false)
         setContGone(filterCont)
-        sortBy = "all"
-        setAdapter()
-//        adapter.notifyDataSetChanged()
+        presenter.sortBy = Constants.Sort.ALL
+        presenter.setAdapter()
     }
 
     private fun pressOwnerFilter() {
@@ -141,9 +91,8 @@ class StockFragment : SmartFragment(R.layout.fragment_stock) {
         setButtonBackground(btnBrokerFilter, false)
         setButtonBackground(btnTypeFilter, false)
         setContGone(filterCont)
-        sortBy = "owner"
-        setAdapter()
-//        adapter.notifyDataSetChanged()
+        presenter.sortBy = Constants.Sort.OWNER
+        presenter.setAdapter()
     }
 
     private fun pressBrokerFilter() {
@@ -152,9 +101,8 @@ class StockFragment : SmartFragment(R.layout.fragment_stock) {
         setButtonBackground(btnBrokerFilter, true)
         setButtonBackground(btnTypeFilter, false)
         setContGone(filterCont)
-        sortBy = "broker"
-        setAdapter()
-//        adapter.notifyDataSetChanged()
+        presenter.sortBy = Constants.Sort.BROKER
+        presenter.setAdapter()
     }
 
     private fun pressTypeFilter() {
@@ -163,9 +111,8 @@ class StockFragment : SmartFragment(R.layout.fragment_stock) {
         setButtonBackground(btnBrokerFilter, false)
         setButtonBackground(btnTypeFilter, true)
         setContGone(filterCont)
-        sortBy = "type"
-        setAdapter()
-//        adapter.notifyDataSetChanged()
+        presenter.sortBy = Constants.Sort.TYPE
+        presenter.setAdapter()
     }
 
     fun tests() {

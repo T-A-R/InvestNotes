@@ -11,7 +11,17 @@ import java.io.BufferedReader
 import java.io.IOException
 import java.util.regex.Pattern
 
-class GetSymbol(threadName: String?, private val mQuery: String) : Thread(threadName) {
+class GetSymbol(threadName: String, private val mQuery: String) : Thread(threadName) {
+
+    companion object {
+        // http://autoc.finance.yahoo.com/autoc?query=ab&callback=YAHOO.Finance.SymbolSuggest.ssCallback&region=US&lang=en-US
+        private const val BASE_URL = "http://autoc.finance.yahoo.com/autoc?"
+        private const val QUERY = "query"
+        private const val CALLBACK = "callback"
+        private const val REGION = "region"
+        private const val LANGUAGE = "lang"
+    }
+
     override fun run() {
         Process.setThreadPriority(Process.THREAD_PRIORITY_BACKGROUND)
         if (!isInterrupted) {
@@ -74,12 +84,5 @@ class GetSymbol(threadName: String?, private val mQuery: String) : Thread(thread
         }
     }
 
-    companion object {
-        // http://autoc.finance.yahoo.com/autoc?query=ab&callback=YAHOO.Finance.SymbolSuggest.ssCallback&region=US&lang=en-US
-        private const val BASE_URL = "http://autoc.finance.yahoo.com/autoc?"
-        private const val QUERY = "query"
-        private const val CALLBACK = "callback"
-        private const val REGION = "region"
-        private const val LANGUAGE = "lang"
-    }
+
 }
