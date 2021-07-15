@@ -9,8 +9,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.tar.investnotes.R
 import com.tar.investnotes.activities.MainActivity
@@ -161,7 +164,7 @@ abstract class SmartFragment(var layoutSrc: Int) : Fragment() {
         }
     }
 
-//    @SuppressLint("ResourceAsColor")
+    //    @SuppressLint("ResourceAsColor")
     fun setButtonBackground(button: Button, pressed: Boolean) {
         if (pressed) {
             button.setBackgroundResource(R.drawable.button_background_blue)
@@ -174,4 +177,13 @@ abstract class SmartFragment(var layoutSrc: Int) : Fragment() {
         }
     }
 
+    fun setTextOrHide(text: String?, view: TextView, visible: Boolean) {
+        view.isVisible = visible
+        view.text = text ?: ""
+    }
+
+    fun setTextOrHide(text: String?, view: EditText, visible: Boolean) {
+        view.isVisible = visible
+        view.setText(text ?: "")
+    }
 }

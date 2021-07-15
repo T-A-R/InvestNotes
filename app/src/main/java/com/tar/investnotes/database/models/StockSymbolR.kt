@@ -17,7 +17,11 @@ class StockSymbolR(
     @ColumnInfo(name = "exch")
     var exch: String? = null,
     @ColumnInfo(name = "type")
-    var type: String? = null
+    var type: String? = null,
+    @ColumnInfo(name = "exch_disp")
+    var exchDisp: String? = null,
+    @ColumnInfo(name = "type_disp")
+    var typeDisp: String? = null
 ) {
     override fun toString(): String {
         return String.format("Symbol: $symbol, name: $name")

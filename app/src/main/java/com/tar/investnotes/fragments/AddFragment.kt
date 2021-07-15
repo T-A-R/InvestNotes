@@ -144,6 +144,7 @@ class AddFragment : SmartFragment(R.layout.fragment_add) {
             }
             priceText, commissionText -> {
                 mValueEt.inputType = InputType.TYPE_CLASS_NUMBER + InputType.TYPE_NUMBER_FLAG_DECIMAL
+                presenter.getPrice("YNDX", mValueEt)
             }
             quantityText -> {
                 mValueEt.inputType = InputType.TYPE_CLASS_NUMBER

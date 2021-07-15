@@ -29,10 +29,17 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.observers.DisposableObserver
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_add.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
 import okhttp3.ResponseBody
+import yahoofinance.YahooFinance
+import java.math.BigDecimal
+import java.text.DecimalFormat
 import java.util.concurrent.TimeUnit
 
-class AddPresenter(private val activity: MainActivity, private val fragment: AddFragment) : CustomCompanyListAdapter.OnCompanyClick, CustomListAdapter.OnItemClick {
+class AddPresenter(private val activity: MainActivity, private val fragment: AddFragment) : CustomCompanyListAdapter.OnCompanyClick,
+    CustomListAdapter.OnItemClick {
 
     private val investment = InvestmentR()
     private var index = IndexR()
@@ -195,25 +202,6 @@ class AddPresenter(private val activity: MainActivity, private val fragment: Add
         investment.date = date
     }
 
-//    fun findIndex(editText: EditText, listView: ListView) {
-//
-//        adapter = CustomCompanyListAdapter(mNamesList, editText, activity, this)
-//        listView.adapter = adapter
-//
-//        disposableSearchIndex = RxTextView.textChangeEvents(editText)
-//            .debounce(400, TimeUnit.MILLISECONDS)
-//            .filter { changes -> StringUtils.isNotNullOrEmpty(changes.text().toString()) }
-//            .map { listener -> listener.text().toString() }
-//            .flatMap {
-//                return@flatMap CoreApp.retrofitAPI?.getStockInfo(Constants.Default.API_ME_INDEX_URL + it + Constants.Default.API_ME_INDEX_PARAMS)
-//                    ?.onErrorResumeNext(Observable.empty())
-//            }
-//            .map { body -> getStringIndex(body) }
-//            .subscribeOn(Schedulers.io())
-//            .observeOn(AndroidSchedulers.mainThread())
-//            .subscribeWith(getSearchObserver(listView))
-//    }
-
     fun findIndex(editText: EditText, listView: ListView) {
 
         adapter = CustomCompanyListAdapter(mNamesList, editText, activity, this)
@@ -224,7 +212,7 @@ class AddPresenter(private val activity: MainActivity, private val fragment: Add
             .filter { changes -> StringUtils.isNotNullOrEmpty(changes.text().toString()) }
             .map { listener -> listener.text().toString() }
             .flatMap {
-                return@flatMap CoreApp.retrofitAPI?.getStockInfo(Constants.Default.API_YAHOO_FINANCE + it + Constants.Default.API_YAHOO_FINANCE_PARAMS)
+                return@flatMap CoreApp.retrofitAPI?.getStockInfo(Constants.Default.API_ME_INDEX_URL + it + Constants.Default.API_ME_INDEX_PARAMS)
                     ?.onErrorResumeNext(Observable.empty())
             }
             .map { body -> getStringIndex(body) }
@@ -256,7 +244,7 @@ class AddPresenter(private val activity: MainActivity, private val fragment: Add
         data?.let {
             val json: String = U.xmlToJson(data.string())
 
-            Log.d(TAG, "?????? getStringIndex: $json")
+//            Log.d(TAG, "?????? getStringIndex: $json")
 
             val serverAnswer1: IndexObject?
 
@@ -309,7 +297,7 @@ class AddPresenter(private val activity: MainActivity, private val fragment: Add
         }
     }
 
-    fun getListAdapter(view: View, list: List<String>) : CustomListAdapter {
+    fun getListAdapter(view: View, list: List<String>): CustomListAdapter {
         return CustomListAdapter(list, view, activity, this)
     }
 
@@ -323,4 +311,14 @@ class AddPresenter(private val activity: MainActivity, private val fragment: Add
         }
         setValue(view, data)
     }
+
+    fun getPrice(index: String, view: EditText) {
+        GlobalScope.launch {
+            MainScope().launch { fragment.setTextOrHide(null, view, false) }
+            val stock = YahooFinance.get(index)
+            val price = stock?.getQuote(true)?.price?.toString() ?: ""
+            MainScope().launch { fragment.setTextOrHide(price, view, true) }
+        }
+    }
+
 }
