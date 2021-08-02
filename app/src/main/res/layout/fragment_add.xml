@@ -9,7 +9,7 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/labelText"
+        android:id="@+id/sumLabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_20sdp"
@@ -23,15 +23,298 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_below="@+id/labelText"
-        android:layout_above="@+id/btnAdd">
+        android:layout_above="@+id/btnAdd"
+        android:layout_below="@+id/sumLabel"
+        android:layout_alignParentTop="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <!--NAME-->
+            <RelativeLayout
+                android:id="@+id/investNameCont"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shadow"
+                android:gravity="center_vertical"
+                android:visibility="invisible">
+
+                <Button
+                    android:id="@+id/btnReloadInvestName"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:background="@drawable/sync_blue" />
+
+                <TextView
+                    android:id="@+id/investNameLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_toStartOf="@+id/btnReloadInvestName"
+                    android:text="Investment"
+                    android:textColor="@color/brand_color_dark"
+                    android:textSize="@dimen/_10ssp"
+                    android:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/investNameText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/investNameLabel"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    android:layout_toStartOf="@+id/btnReloadInvestName"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/_12ssp"
+                    android:visibility="visible" />
+
+            </RelativeLayout>
+
+            <!--PRICE-->
+            <RelativeLayout
+                android:id="@+id/priceCont"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shadow"
+                android:gravity="center_vertical"
+                android:visibility="invisible">
+
+                <Button
+                    android:id="@+id/btnReloadPrice"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:background="@drawable/sync_blue" />
+
+                <TextView
+                    android:id="@+id/priceLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_toStartOf="@+id/btnReloadPrice"
+                    android:text="Price"
+                    android:textColor="@color/brand_color_dark"
+                    android:textSize="@dimen/_10ssp"
+                    android:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/priceText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/priceLabel"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    android:layout_toStartOf="@+id/btnReloadPrice"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/_12ssp"
+                    android:visibility="visible" />
+
+            </RelativeLayout>
+
+            <!--QUANTITY-->
+            <RelativeLayout
+                android:id="@+id/quantityCont"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shadow"
+                android:gravity="center_vertical"
+                android:visibility="invisible">
+
+                <Button
+                    android:id="@+id/btnReloadQuantity"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:background="@drawable/sync_blue" />
+
+                <TextView
+                    android:id="@+id/quantityLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_toStartOf="@+id/btnReloadQuantity"
+                    android:text="Quantity"
+                    android:textColor="@color/brand_color_dark"
+                    android:textSize="@dimen/_10ssp"
+                    android:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/quantityText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/quantityLabel"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    android:layout_toStartOf="@+id/btnReloadQuantity"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/_12ssp"
+                    android:visibility="visible" />
+
+            </RelativeLayout>
+
+            <!--COMMISSION-->
+            <RelativeLayout
+                android:id="@+id/commissionCont"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shadow"
+                android:gravity="center_vertical"
+                android:visibility="invisible">
+
+                <Button
+                    android:id="@+id/btnReloadCommission"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:background="@drawable/sync_blue" />
+
+                <TextView
+                    android:id="@+id/commissionLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_toStartOf="@+id/btnReloadCommission"
+                    android:text="Commission"
+                    android:textColor="@color/brand_color_dark"
+                    android:textSize="@dimen/_10ssp"
+                    android:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/commissionText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/commissionLabel"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    android:layout_toStartOf="@+id/btnReloadCommission"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/_12ssp"
+                    android:visibility="visible" />
+
+            </RelativeLayout>
+
+            <!--TYPE-->
+            <RelativeLayout
+                android:id="@+id/typeCont"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shadow"
+                android:gravity="center_vertical"
+                android:visibility="invisible">
+
+                <Button
+                    android:id="@+id/btnReloadType"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:background="@drawable/sync_blue" />
+
+                <TextView
+                    android:id="@+id/typeLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_toStartOf="@+id/btnReloadType"
+                    android:text="Investment type"
+                    android:textColor="@color/brand_color_dark"
+                    android:textSize="@dimen/_10ssp"
+                    android:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/typeText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/typeLabel"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    android:layout_toStartOf="@+id/btnReloadType"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/_12ssp"
+                    android:visibility="visible" />
+
+            </RelativeLayout>
+
+            <!--BROKER-->
+            <RelativeLayout
+                android:id="@+id/brokerCont"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shadow"
+                android:gravity="center_vertical"
+                android:visibility="invisible">
+
+                <Button
+                    android:id="@+id/btnReloadBroker"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:background="@drawable/sync_blue" />
+
+                <TextView
+                    android:id="@+id/brokerLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_toStartOf="@+id/btnReloadBroker"
+                    android:text="Broker"
+                    android:textColor="@color/brand_color_dark"
+                    android:textSize="@dimen/_10ssp"
+                    android:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/brokerText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/brokerLabel"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    android:layout_toStartOf="@+id/btnReloadBroker"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/_12ssp"
+                    android:visibility="visible" />
+
+            </RelativeLayout>
+
+            <!--OWNER-->
             <RelativeLayout
                 android:id="@+id/ownerCont"
                 android:layout_width="match_parent"
@@ -45,20 +328,20 @@
                     android:id="@+id/btnReloadOwner"
                     android:layout_width="@dimen/_20sdp"
                     android:layout_height="@dimen/_20sdp"
-                    android:layout_marginEnd="@dimen/_12sdp"
                     android:layout_alignParentEnd="true"
-                    android:background="@drawable/sync_blue"
-                    android:layout_centerVertical="true"/>
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:background="@drawable/sync_blue" />
 
                 <TextView
                     android:id="@+id/ownerLabel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:layout_toStartOf="@+id/btnReloadOwner"
-                    android:layout_marginEnd="@dimen/_8sdp"
                     android:layout_marginStart="@dimen/_8sdp"
                     android:layout_marginTop="@dimen/_3sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_toStartOf="@+id/btnReloadOwner"
                     android:text="Owner"
                     android:textColor="@color/brand_color_dark"
                     android:textSize="@dimen/_10ssp"
@@ -69,288 +352,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/ownerLabel"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_2sdp"
                     android:layout_toStartOf="@+id/btnReloadOwner"
-                    android:layout_marginEnd="@dimen/_8sdp"
-                    android:layout_marginBottom="@dimen/_2sdp"
-                    android:layout_marginStart="@dimen/_8sdp"
                     android:textColor="@color/gray"
                     android:textSize="@dimen/_12ssp"
                     android:visibility="visible" />
 
             </RelativeLayout>
 
-            <RelativeLayout
-                android:id="@+id/typeCont"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/shadow"
-                android:gravity="center_vertical"
-                android:visibility="invisible">
-
-                <Button
-                    android:id="@+id/btnReloadType"
-                    android:layout_width="@dimen/_20sdp"
-                    android:layout_height="@dimen/_20sdp"
-                    android:layout_marginEnd="@dimen/_12sdp"
-                    android:layout_alignParentEnd="true"
-                    android:background="@drawable/sync_blue"
-                    android:layout_centerVertical="true"/>
-
-                <TextView
-                    android:id="@+id/typeLabel"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_toStartOf="@+id/btnReloadType"
-                    android:layout_marginEnd="@dimen/_8sdp"
-                    android:layout_marginStart="@dimen/_8sdp"
-                    android:layout_marginTop="@dimen/_3sdp"
-                    android:text="Investment type"
-                    android:textColor="@color/brand_color_dark"
-                    android:textSize="@dimen/_10ssp"
-                    android:visibility="visible" />
-
-                <TextView
-                    android:id="@+id/typeText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/typeLabel"
-                    android:layout_toStartOf="@+id/btnReloadType"
-                    android:layout_marginEnd="@dimen/_8sdp"
-                    android:layout_marginBottom="@dimen/_2sdp"
-                    android:layout_marginStart="@dimen/_8sdp"
-                    android:textColor="@color/gray"
-                    android:textSize="@dimen/_12ssp"
-                    android:visibility="visible" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/brokerCont"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/shadow"
-                android:gravity="center_vertical"
-                android:visibility="invisible">
-                <Button
-                    android:id="@+id/btnReloadBroker"
-                    android:layout_width="@dimen/_20sdp"
-                    android:layout_height="@dimen/_20sdp"
-                    android:layout_marginEnd="@dimen/_12sdp"
-                    android:layout_alignParentEnd="true"
-                    android:background="@drawable/sync_blue"
-                    android:layout_centerVertical="true"/>
-
-                <TextView
-                    android:id="@+id/brokerLabel"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_toStartOf="@+id/btnReloadBroker"
-                    android:layout_marginEnd="@dimen/_8sdp"
-                    android:layout_marginStart="@dimen/_8sdp"
-                    android:layout_marginTop="@dimen/_3sdp"
-                    android:text="Broker"
-                    android:textColor="@color/brand_color_dark"
-                    android:textSize="@dimen/_10ssp"
-                    android:visibility="visible" />
-
-                <TextView
-                    android:id="@+id/brokerText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/brokerLabel"
-                    android:layout_toStartOf="@+id/btnReloadBroker"
-                    android:layout_marginEnd="@dimen/_8sdp"
-                    android:layout_marginBottom="@dimen/_2sdp"
-                    android:layout_marginStart="@dimen/_8sdp"
-                    android:textColor="@color/gray"
-                    android:textSize="@dimen/_12ssp"
-                    android:visibility="visible" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/investNameCont"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/shadow"
-                android:gravity="center_vertical"
-                android:visibility="invisible">
-
-                <Button
-                    android:id="@+id/btnReloadInvestName"
-                    android:layout_width="@dimen/_20sdp"
-                    android:layout_height="@dimen/_20sdp"
-                    android:layout_marginEnd="@dimen/_12sdp"
-                    android:layout_alignParentEnd="true"
-                    android:background="@drawable/sync_blue"
-                    android:layout_centerVertical="true"/>
-
-                <TextView
-                    android:id="@+id/investNameLabel"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_toStartOf="@+id/btnReloadInvestName"
-                    android:layout_marginEnd="@dimen/_8sdp"
-                    android:layout_marginStart="@dimen/_8sdp"
-                    android:layout_marginTop="@dimen/_3sdp"
-                    android:text="Investment"
-                    android:textColor="@color/brand_color_dark"
-                    android:textSize="@dimen/_10ssp"
-                    android:visibility="visible" />
-
-                <TextView
-                    android:id="@+id/investNameText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/investNameLabel"
-                    android:layout_toStartOf="@+id/btnReloadInvestName"
-                    android:layout_marginEnd="@dimen/_8sdp"
-                    android:layout_marginBottom="@dimen/_2sdp"
-                    android:layout_marginStart="@dimen/_8sdp"
-                    android:textColor="@color/gray"
-                    android:textSize="@dimen/_12ssp"
-                    android:visibility="visible" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/priceCont"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/shadow"
-                android:gravity="center_vertical"
-                android:visibility="invisible">
-                <Button
-                    android:id="@+id/btnReloadPrice"
-                    android:layout_width="@dimen/_20sdp"
-                    android:layout_height="@dimen/_20sdp"
-                    android:layout_marginEnd="@dimen/_12sdp"
-                    android:layout_alignParentEnd="true"
-                    android:background="@drawable/sync_blue"
-                    android:layout_centerVertical="true"/>
-
-                <TextView
-                    android:id="@+id/priceLabel"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_toStartOf="@+id/btnReloadPrice"
-                    android:layout_marginEnd="@dimen/_8sdp"
-                    android:layout_marginStart="@dimen/_8sdp"
-                    android:layout_marginTop="@dimen/_3sdp"
-                    android:text="Price"
-                    android:textColor="@color/brand_color_dark"
-                    android:textSize="@dimen/_10ssp"
-                    android:visibility="visible" />
-
-                <TextView
-                    android:id="@+id/priceText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/priceLabel"
-                    android:layout_toStartOf="@+id/btnReloadPrice"
-                    android:layout_marginEnd="@dimen/_8sdp"
-                    android:layout_marginBottom="@dimen/_2sdp"
-                    android:layout_marginStart="@dimen/_8sdp"
-                    android:textColor="@color/gray"
-                    android:textSize="@dimen/_12ssp"
-                    android:visibility="visible" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/quantityCont"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/shadow"
-                android:gravity="center_vertical"
-                android:visibility="invisible">
-                <Button
-                    android:id="@+id/btnReloadQuantity"
-                    android:layout_width="@dimen/_20sdp"
-                    android:layout_height="@dimen/_20sdp"
-                    android:layout_marginEnd="@dimen/_12sdp"
-                    android:layout_alignParentEnd="true"
-                    android:background="@drawable/sync_blue"
-                    android:layout_centerVertical="true"/>
-
-                <TextView
-                    android:id="@+id/quantityLabel"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_toStartOf="@+id/btnReloadQuantity"
-                    android:layout_marginEnd="@dimen/_8sdp"
-                    android:layout_marginStart="@dimen/_8sdp"
-                    android:layout_marginTop="@dimen/_3sdp"
-                    android:text="Quantity"
-                    android:textColor="@color/brand_color_dark"
-                    android:textSize="@dimen/_10ssp"
-                    android:visibility="visible" />
-
-                <TextView
-                    android:id="@+id/quantityText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/quantityLabel"
-                    android:layout_toStartOf="@+id/btnReloadQuantity"
-                    android:layout_marginEnd="@dimen/_8sdp"
-                    android:layout_marginBottom="@dimen/_2sdp"
-                    android:layout_marginStart="@dimen/_8sdp"
-                    android:textColor="@color/gray"
-                    android:textSize="@dimen/_12ssp"
-                    android:visibility="visible" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/commissionCont"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/shadow"
-                android:gravity="center_vertical"
-                android:visibility="invisible">
-                <Button
-                    android:id="@+id/btnReloadCommission"
-                    android:layout_width="@dimen/_20sdp"
-                    android:layout_height="@dimen/_20sdp"
-                    android:layout_marginEnd="@dimen/_12sdp"
-                    android:layout_alignParentEnd="true"
-                    android:background="@drawable/sync_blue"
-                    android:layout_centerVertical="true"/>
-
-                <TextView
-                    android:id="@+id/commissionLabel"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_toStartOf="@+id/btnReloadCommission"
-                    android:layout_marginEnd="@dimen/_8sdp"
-                    android:layout_marginStart="@dimen/_8sdp"
-                    android:layout_marginTop="@dimen/_3sdp"
-                    android:text="Commission"
-                    android:textColor="@color/brand_color_dark"
-                    android:textSize="@dimen/_10ssp"
-                    android:visibility="visible" />
-
-                <TextView
-                    android:id="@+id/commissionText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/commissionLabel"
-                    android:layout_toStartOf="@+id/btnReloadCommission"
-                    android:layout_marginEnd="@dimen/_8sdp"
-                    android:layout_marginBottom="@dimen/_2sdp"
-                    android:layout_marginStart="@dimen/_8sdp"
-                    android:textColor="@color/gray"
-                    android:textSize="@dimen/_12ssp"
-                    android:visibility="visible" />
-
-            </RelativeLayout>
-
+            <!--DATE-->
             <RelativeLayout
                 android:id="@+id/dateCont"
                 android:layout_width="match_parent"
@@ -358,24 +370,25 @@
                 android:background="@drawable/shadow"
                 android:gravity="center_vertical"
                 android:visibility="invisible">
+
                 <Button
                     android:id="@+id/btnReloadDate"
                     android:layout_width="@dimen/_20sdp"
                     android:layout_height="@dimen/_20sdp"
-                    android:layout_marginEnd="@dimen/_12sdp"
                     android:layout_alignParentEnd="true"
-                    android:background="@drawable/sync_blue"
-                    android:layout_centerVertical="true"/>
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:background="@drawable/sync_blue" />
 
                 <TextView
                     android:id="@+id/dateLabel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:layout_toStartOf="@+id/btnReloadDate"
-                    android:layout_marginEnd="@dimen/_8sdp"
                     android:layout_marginStart="@dimen/_8sdp"
                     android:layout_marginTop="@dimen/_3sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_toStartOf="@+id/btnReloadDate"
                     android:text="Date"
                     android:textColor="@color/brand_color_dark"
                     android:textSize="@dimen/_10ssp"
@@ -386,16 +399,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/dateLabel"
-                    android:layout_toStartOf="@+id/btnReloadDate"
+                    android:layout_marginStart="@dimen/_8sdp"
                     android:layout_marginEnd="@dimen/_8sdp"
                     android:layout_marginBottom="@dimen/_2sdp"
-                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_toStartOf="@+id/btnReloadDate"
                     android:textColor="@color/gray"
                     android:textSize="@dimen/_12ssp"
                     android:visibility="visible" />
 
             </RelativeLayout>
 
+            <!--TOTAL-->
             <RelativeLayout
                 android:id="@+id/totalCont"
                 android:layout_width="match_parent"
@@ -403,6 +417,7 @@
                 android:background="@drawable/shadow"
                 android:gravity="center_vertical"
                 android:visibility="invisible">
+
                 <TextView
                     android:id="@+id/totalLabel"
                     android:layout_width="match_parent"
@@ -420,8 +435,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/totalLabel"
-                    android:layout_marginBottom="@dimen/_2sdp"
                     android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_2sdp"
                     android:textColor="@color/gray"
                     android:textSize="@dimen/_12ssp"
                     android:visibility="visible" />
@@ -437,13 +452,13 @@
         style="@style/ButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_36sdp"
-        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_alignParentBottom="true"
         android:layout_marginStart="@dimen/_40sdp"
+        android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginEnd="@dimen/_40sdp"
         android:layout_marginBottom="90dp"
-        android:layout_alignParentBottom="true"
         android:maxLines="1"
-        android:textSize="@dimen/_14ssp"
-        android:text="@string/continue_btn" />
+        android:text="@string/continue_btn"
+        android:textSize="@dimen/_14ssp" />
 
 </RelativeLayout>

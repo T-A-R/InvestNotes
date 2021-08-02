@@ -34,20 +34,19 @@ import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 import okhttp3.ResponseBody
 import yahoofinance.YahooFinance
-import java.math.BigDecimal
-import java.text.DecimalFormat
 import java.util.concurrent.TimeUnit
 
 class AddPresenter(private val activity: MainActivity, private val fragment: AddFragment) : CustomCompanyListAdapter.OnCompanyClick,
     CustomListAdapter.OnItemClick {
 
+    var counter: Int = 0
     private val investment = InvestmentR()
     private var index = IndexR()
-    var counter: Int = 0
     private lateinit var alertDialog: AlertDialog
+    private var commissionFloat: Float = 0F
 
     private var disposableSearchIndex: Disposable? = null
-    val mNamesList = mutableListOf<IndexR>()
+    private val mNamesList = mutableListOf<IndexR>()
     lateinit var adapter: CustomCompanyListAdapter
 
     fun getAllOwners(): List<String> {
@@ -84,37 +83,6 @@ class AddPresenter(private val activity: MainActivity, private val fragment: Add
     fun setValue(view: View, text: String) {
         Log.d(TAG, "setValue:  $view / ${fragment.ownerText}")
         when (view) {
-            fragment.ownerText -> {
-                investment.owner = text
-                fragment.ownerText.text = text
-                fragment.labelText.visibility = View.GONE
-                fragment.ownerCont.startAnimation(Anim.getEnterFromRight(activity))
-                fragment.ownerCont.visibility = View.VISIBLE
-                if (counter == 0) {
-                    counter++
-                    fragment.setType()
-                }
-            }
-            fragment.typeText -> {
-                investment.type = text
-                fragment.typeText.text = text
-                fragment.typeCont.startAnimation(Anim.getEnterFromRight(activity))
-                fragment.typeCont.visibility = View.VISIBLE
-                if (counter == 1) {
-                    counter++
-                    fragment.setBroker()
-                }
-            }
-            fragment.brokerText -> {
-                investment.broker = text
-                fragment.brokerText.text = text
-                fragment.brokerCont.startAnimation(Anim.getEnterFromRight(activity))
-                fragment.brokerCont.visibility = View.VISIBLE
-                if (counter == 2) {
-                    counter++
-                    fragment.setInvestment()
-                }
-            }
             fragment.investNameText -> {
                 investment.code = text
                 fragment.investNameText.text = text
@@ -124,15 +92,20 @@ class AddPresenter(private val activity: MainActivity, private val fragment: Add
                 data.shortName = text
                 stopSearchIndex()
                 setIndex(data)
+                if (counter == 0) {
+                    counter++
+                    fragment.setPrice()
+                }
             }
             fragment.priceText -> {
                 val priceFloat: Float = text.toFloat()
                 val priceString = "$priceFloat ${investment.currency}"
                 investment.priceBuy = priceFloat
+                investment.priceLast = priceFloat
                 fragment.priceText.text = priceString
                 fragment.priceCont.startAnimation(Anim.getEnterFromRight(activity))
                 fragment.priceCont.visibility = View.VISIBLE
-                if (counter == 4) {
+                if (counter == 1) {
                     counter++
                     fragment.setQuantity()
                 }
@@ -143,21 +116,56 @@ class AddPresenter(private val activity: MainActivity, private val fragment: Add
                 fragment.quantityText.text = "$quantity"
                 fragment.quantityCont.startAnimation(Anim.getEnterFromRight(activity))
                 fragment.quantityCont.visibility = View.VISIBLE
-                if (counter == 5) {
+                if (counter == 2) {
                     counter++
                     fragment.setCommission()
                 }
             }
             fragment.commissionText -> {
-                val commissionFloat: Float = text.toFloat()
+                commissionFloat = text.toFloat()
                 val commissionString = "$commissionFloat $"
-                val totalFloat: Float = (investment.priceBuy * investment.quantity) + commissionFloat
-                val totalString = "$totalFloat ${investment.currency}"
-                val dateLong = DateUtils.currentTimeMillis
+
                 investment.commission = commissionFloat
+                investment.profit = -commissionFloat
                 fragment.commissionText.text = commissionString
                 fragment.commissionCont.startAnimation(Anim.getEnterFromRight(activity))
                 fragment.commissionCont.visibility = View.VISIBLE
+                if (counter == 3) {
+                    counter++
+                    fragment.setType()
+                }
+            }
+            fragment.typeText -> {
+                investment.type = text
+                fragment.typeText.text = text
+                fragment.typeCont.startAnimation(Anim.getEnterFromRight(activity))
+                fragment.typeCont.visibility = View.VISIBLE
+                if (counter == 4) {
+                    counter++
+                    fragment.setBroker()
+                }
+            }
+            fragment.brokerText -> {
+                investment.broker = text
+                fragment.brokerText.text = text
+                fragment.brokerCont.startAnimation(Anim.getEnterFromRight(activity))
+                fragment.brokerCont.visibility = View.VISIBLE
+                if (counter == 5) {
+                    counter++
+                    fragment.setOwner()
+                }
+            }
+            fragment.ownerText -> {
+                val dateLong = DateUtils.currentTimeMillis
+                val totalFloat: Float = (investment.priceBuy * investment.quantity) + commissionFloat
+                val totalString = "$totalFloat ${investment.currency}"
+
+                investment.owner = text
+                fragment.ownerText.text = text
+                fragment.sumLabel.visibility = View.GONE
+                fragment.ownerCont.startAnimation(Anim.getEnterFromRight(activity))
+                fragment.ownerCont.visibility = View.VISIBLE
+
                 investment.date = dateLong
                 fragment.dateText.text = DateUtils.getCurrentFormattedDate(DateUtils.PATTERN_DAY)
                 fragment.dateCont.startAnimation(Anim.getEnterFromRight(activity, 200))
@@ -192,7 +200,7 @@ class AddPresenter(private val activity: MainActivity, private val fragment: Add
         fragment.investNameText.text = indexR.shortName
         fragment.investNameCont.startAnimation(Anim.getEnterFromRight(activity))
         fragment.investNameCont.visibility = View.VISIBLE
-        if (counter == 3) {
+        if (counter == 0) {
             counter++
             fragment.setPrice()
         }
@@ -243,8 +251,6 @@ class AddPresenter(private val activity: MainActivity, private val fragment: Add
     private fun getStringIndex(data: ResponseBody?): List<IndexR> {
         data?.let {
             val json: String = U.xmlToJson(data.string())
-
-//            Log.d(TAG, "?????? getStringIndex: $json")
 
             val serverAnswer1: IndexObject?
 

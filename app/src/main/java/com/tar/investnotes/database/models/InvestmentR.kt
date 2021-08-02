@@ -29,6 +29,9 @@ data class InvestmentR(
     @ColumnInfo(name = "price_last")
     var priceLast: Float = 0F,
 
+    @ColumnInfo(name = "profit")
+    var profit: Float = 0F,
+
     @ColumnInfo(name = "owner")
     var owner: String = "",
 

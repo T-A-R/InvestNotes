@@ -15,10 +15,11 @@ import java.util.ArrayList
         IndexR::class,
         OwnerR::class,
         BrokerR::class,
+        SettingsR::class,
         InvestTypeR::class,
         InvestmentR::class,
         StockSymbolR::class
-    ], version = 14, exportSchema = false
+    ], version = 16, exportSchema = false
 )
 
 abstract class StoreDatabase : RoomDatabase() {

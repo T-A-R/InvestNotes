@@ -13,11 +13,10 @@
         android:background="@drawable/shadow">
 
         <TextView
-            android:id="@+id/labelText"
+            android:id="@+id/sumLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="2000.00 $"
             android:textColor="@color/black"
             android:textSize="@dimen/_20ssp"
             android:visibility="visible" />
@@ -25,7 +24,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/labelText"
+            android:layout_below="@+id/sumLabel"
             android:layout_centerHorizontal="true"
             android:orientation="horizontal">
 

@@ -10,6 +10,10 @@ import com.tar.investnotes.adapters.StockGroupAdapter
 import com.tar.investnotes.database.models.InvestmentR
 import com.tar.investnotes.fragments.StockFragment
 import kotlinx.android.synthetic.main.fragment_stock.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
+import yahoofinance.YahooFinance
 
 class StockPresenter(private val activity: MainActivity, private val fragment: StockFragment) : CustomListAdapter.OnItemClick {
 
@@ -53,5 +57,29 @@ class StockPresenter(private val activity: MainActivity, private val fragment: S
 
     override fun onItemClicked(data: String, view: View) {
 
+    }
+
+    fun setInfo() {
+        GlobalScope.launch {
+            var sum = 0F
+            var profit = 0F
+            val currency = activity.getDao().getCurrency()
+            if (!investList.isNullOrEmpty()) {
+                for(invest in investList) {
+                    sum += invest.priceLast
+                    profit += invest.profit
+                }
+            }
+            MainScope().launch {
+                fragment.sumLabel.text = "$sum $currency"
+                fragment.profitLabel.text = "$profit $currency"
+            }
+        }
+    }
+
+    fun setCurrency (button: View) {
+        when(button) {
+            fragment.btnUSD -> activity.getDao().setCurrency("$")
+        }
     }
 }

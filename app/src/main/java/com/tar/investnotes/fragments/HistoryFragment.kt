@@ -21,9 +21,9 @@ class HistoryFragment : SmartFragment(R.layout.fragment_history) {
 //        et_temp.typeface = Fonts.getFuturaPtMedium()
 //        btn_next.typeface = Fonts.getFuturaPtBook()
 //        btn_next.transformationMethod = null
-        labelText.typeface = Fonts.getKallisto()
+        sumLabel.typeface = Fonts.getKallisto()
         cont_temp_fragment.startAnimation(Anim.getAppear(context))
-        labelText.startAnimation(Anim.getAppearSlide(context, 200))
+        sumLabel.startAnimation(Anim.getAppearSlide(context, 200))
     }
 
     fun onNextButtonClick() {

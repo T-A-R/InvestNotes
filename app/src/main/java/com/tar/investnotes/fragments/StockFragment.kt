@@ -1,5 +1,6 @@
 package com.tar.investnotes.fragments
 
+import android.view.View
 import androidx.core.view.isVisible
 import com.tar.investnotes.Constants
 import com.tar.investnotes.R
@@ -8,7 +9,7 @@ import com.tar.investnotes.utils.Anim
 import com.tar.investnotes.utils.Fonts
 import kotlinx.android.synthetic.main.fragment_stock.*
 import kotlinx.android.synthetic.main.fragment_stock.cont_temp_fragment
-import kotlinx.android.synthetic.main.fragment_stock.labelText
+import kotlinx.android.synthetic.main.fragment_stock.sumLabel
 
 class StockFragment : SmartFragment(R.layout.fragment_stock) {
 
@@ -24,7 +25,7 @@ class StockFragment : SmartFragment(R.layout.fragment_stock) {
     }
 
     private fun initViews() {
-        labelText.typeface = Fonts.getKallisto()
+        sumLabel.typeface = Fonts.getKallisto()
         profitLabel.typeface = Fonts.getKallisto()
         btnAll.typeface = Fonts.getKallisto()
         btnOwnerFilter.typeface = Fonts.getKallisto()
@@ -40,12 +41,12 @@ class StockFragment : SmartFragment(R.layout.fragment_stock) {
         btnBTN.typeface = Fonts.getKallisto()
         profitMarker.setImageResource(R.drawable.arrow_up)
         cont_temp_fragment.startAnimation(Anim.getAppear(context))
-        labelText.startAnimation(Anim.getAppearSlide(context, 200))
+        sumLabel.startAnimation(Anim.getAppearSlide(context, 200))
         profitMarker.startAnimation(Anim.getAppearSlide(context, 200))
         profitLabel.startAnimation(Anim.getAppearSlide(context, 200))
         stockFilter.startAnimation(Anim.getAppearSlide(context, 200))
 
-        labelText.setOnClickListener { pressCurrency() }
+        sumLabel.setOnClickListener { pressCurrency() }
         stockFilter.setOnClickListener { pressFilter() }
         btnAll.setOnClickListener { pressAllFilter() }
         btnOwnerFilter.setOnClickListener { pressOwnerFilter() }
@@ -53,6 +54,7 @@ class StockFragment : SmartFragment(R.layout.fragment_stock) {
         btnTypeFilter.setOnClickListener { pressTypeFilter() }
 
         presenter.setAdapter()
+        presenter.setInfo()
     }
 
     private fun pressFilter() {

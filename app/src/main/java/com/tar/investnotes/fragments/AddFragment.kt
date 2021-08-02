@@ -32,7 +32,7 @@ class AddFragment : SmartFragment(R.layout.fragment_add) {
     }
 
     private fun initViews() {
-        labelText.typeface = Fonts.getKallisto()
+        sumLabel.typeface = Fonts.getKallisto()
         ownerLabel.typeface = Fonts.getKallisto()
         ownerText.typeface = Fonts.getKallisto()
         typeLabel.typeface = Fonts.getKallisto()
@@ -53,7 +53,7 @@ class AddFragment : SmartFragment(R.layout.fragment_add) {
         dateText.typeface = Fonts.getKallisto()
         btnAdd.typeface = Fonts.getKallisto()
         cont_temp_fragment.startAnimation(Anim.getAppear(context))
-        labelText.startAnimation(Anim.getAppearSlide(context, 200))
+        sumLabel.startAnimation(Anim.getAppearSlide(context, 200))
 
         btnAdd.setOnClickListener { onAddButtonClick() }
         btnReloadOwner.setOnClickListener { setOwner() }
@@ -67,7 +67,7 @@ class AddFragment : SmartFragment(R.layout.fragment_add) {
     }
 
     private fun startAddItemProcess() {
-        setOwner()
+        setInvestment()
     }
 
     override fun onBackPressed(): Boolean {
@@ -159,18 +159,18 @@ class AddFragment : SmartFragment(R.layout.fragment_add) {
         if (presenter.addInvestment()) replaceFragment(StockFragment())
         else {
             when (presenter.counter) {
-                0 -> setOwner()
-                1 -> setType()
-                2 -> setBroker()
-                3 -> setInvestment()
-                4 -> setPrice()
-                5 -> setQuantity()
-                6 -> setCommission()
+                0 -> setInvestment()
+                1 -> setPrice()
+                2 -> setQuantity()
+                3 -> setCommission()
+                4 -> setType()
+                5 -> setBroker()
+                6 -> setOwner()
             }
         }
     }
 
-    private fun setOwner() {
+    fun setOwner() {
         setContInvisible(ownerCont)
         showInputDialog(getString(R.string.dialog_enter_owner), ownerText, presenter.getAllOwners())
     }
